@@ -11,6 +11,7 @@ namespace Logic
 {
     public class RssController
     {
+
         public static List<SyndicationItem> getRssFileByUrl(string url)
         {
             List<string> listOfInfo = new List<string>();
