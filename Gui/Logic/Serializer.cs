@@ -28,5 +28,21 @@ namespace Logic
 
         }
 
+        public static string Deserialize() { //Deserialiserar objektet i XML filen, returnerar värdet på dess "Name" property
+
+            //Har bara testat på ett objekt
+
+            Podcast podcast;
+            //Filutpekningen nedan måste såklart ändras
+            StreamReader xmlStreamReader = new StreamReader(@"C:\Users\Henrik\source\repos\PodApplication\Gui\Testmapp\dokument.xml");
+            XmlSerializer serializer = new XmlSerializer(typeof(Podcast));
+
+            podcast = (Podcast) serializer.Deserialize(xmlStreamReader);
+
+            string name = podcast.Name;
+            return name;
+        
+        }
+
     }
 }
