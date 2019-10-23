@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
@@ -16,12 +17,16 @@ namespace Logic
             XmlReader reader = XmlReader.Create(url);
 
 
-
             SyndicationFeed feed = SyndicationFeed.Load(reader);
             reader.Close();
 
-            // kommer användas senare XmlDocument xmlFeedList = new XmlDocument();
-            //xmlFeedList.Load(reader);
+          
+
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml("<xml><aaa>Lasse Stefanz</aaa></xml>");
+
+
+            doc.Save("Skrivbord3.xml");
 
 
 
