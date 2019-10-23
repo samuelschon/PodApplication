@@ -19,7 +19,9 @@ namespace Gui
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-            Serializer.Serialize();
+           // Serializer.Serialize();
+           // Serializer.Deserialize();
+
 
         }
     }
