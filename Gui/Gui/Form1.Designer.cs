@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("HEllo");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("HEllo");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("HEllo");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("HEllo");
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
@@ -61,7 +61,7 @@
             // label4
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(1294, 13);
+            this.label4.Location = new System.Drawing.Point(1281, 13);
             this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(4, 961);
@@ -70,7 +70,7 @@
             // label5
             // 
             this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(1320, 544);
+            this.label5.Location = new System.Drawing.Point(1307, 544);
             this.label5.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(724, 4);
@@ -79,7 +79,7 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1005, 406);
+            this.comboBox2.Location = new System.Drawing.Point(992, 406);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(277, 24);
@@ -88,7 +88,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(695, 406);
+            this.comboBox1.Location = new System.Drawing.Point(682, 406);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(277, 24);
@@ -100,8 +100,8 @@
             this.columnHeader3});
             this.listView3.HideSelection = false;
             this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.listView3.Location = new System.Drawing.Point(1327, 13);
+            listViewItem3});
+            this.listView3.Location = new System.Drawing.Point(1314, 13);
             this.listView3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.listView3.Name = "listView3";
             this.listView3.Size = new System.Drawing.Size(646, 316);
@@ -112,7 +112,7 @@
             // label6
             // 
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Location = new System.Drawing.Point(1296, 356);
+            this.label6.Location = new System.Drawing.Point(1283, 356);
             this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(746, 5);
@@ -124,8 +124,8 @@
             this.columnHeader2});
             this.listView2.HideSelection = false;
             this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.listView2.Location = new System.Drawing.Point(14, 570);
+            listViewItem4});
+            this.listView2.Location = new System.Drawing.Point(1, 570);
             this.listView2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(1252, 354);
@@ -135,7 +135,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1598, 477);
+            this.button4.Location = new System.Drawing.Point(1585, 477);
             this.button4.Margin = new System.Windows.Forms.Padding(5);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 42);
@@ -145,7 +145,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(1460, 477);
+            this.button5.Location = new System.Drawing.Point(1447, 477);
             this.button5.Margin = new System.Windows.Forms.Padding(5);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(130, 42);
@@ -155,7 +155,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(1320, 477);
+            this.button6.Location = new System.Drawing.Point(1307, 477);
             this.button6.Margin = new System.Windows.Forms.Padding(5);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(131, 42);
@@ -165,7 +165,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(1047, 473);
+            this.button3.Location = new System.Drawing.Point(1034, 473);
             this.button3.Margin = new System.Windows.Forms.Padding(5);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(130, 42);
@@ -175,7 +175,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(909, 473);
+            this.button2.Location = new System.Drawing.Point(896, 473);
             this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 42);
@@ -209,7 +209,7 @@
             this.columnHeader6,
             this.columnHeader7});
             this.lstAllPodcasts.HideSelection = false;
-            this.lstAllPodcasts.Location = new System.Drawing.Point(14, 13);
+            this.lstAllPodcasts.Location = new System.Drawing.Point(1, 13);
             this.lstAllPodcasts.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.lstAllPodcasts.Name = "lstAllPodcasts";
             this.lstAllPodcasts.Size = new System.Drawing.Size(1252, 354);
@@ -223,7 +223,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(1320, 392);
+            this.textBox1.Location = new System.Drawing.Point(1307, 392);
             this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(711, 22);
@@ -232,7 +232,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 372);
+            this.label3.Location = new System.Drawing.Point(-4, 372);
             this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 17);
@@ -241,17 +241,18 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(769, 473);
+            this.button1.Location = new System.Drawing.Point(756, 473);
             this.button1.Margin = new System.Windows.Forms.Padding(5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(131, 42);
             this.button1.TabIndex = 24;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtUrl
             // 
-            this.txtUrl.Location = new System.Drawing.Point(9, 406);
+            this.txtUrl.Location = new System.Drawing.Point(-4, 406);
             this.txtUrl.Margin = new System.Windows.Forms.Padding(5);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(657, 22);
@@ -261,7 +262,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(734, 392);
+            this.label2.Location = new System.Drawing.Point(721, 392);
             this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 17);
@@ -270,7 +271,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(363, 196);
+            this.label1.Location = new System.Drawing.Point(350, 196);
             this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(0, 17);
@@ -280,7 +281,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2178, 1103);
+            this.ClientSize = new System.Drawing.Size(2056, 1104);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.comboBox2);
