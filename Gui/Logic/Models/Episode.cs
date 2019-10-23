@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace Logic.Models
 {
-    public interface Category
+    public class Episode
     {
-
-       
-
-
-
     }
 }

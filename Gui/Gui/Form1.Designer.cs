@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("HEllo");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("HEllo");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("HEllo");
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cboxCategory = new System.Windows.Forms.ComboBox();
@@ -38,18 +37,17 @@
             this.listView3 = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.lstAllEpisodes = new System.Windows.Forms.ListView();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Sammanfattning = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Titel = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colFrequency = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colEpisode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lstAllPodcasts = new System.Windows.Forms.ListView();
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,6 +56,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label4
@@ -111,7 +114,7 @@
             this.columnHeader3});
             this.listView3.HideSelection = false;
             this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
+            listViewItem1});
             this.listView3.Location = new System.Drawing.Point(759, 13);
             this.listView3.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.listView3.Name = "listView3";
@@ -129,20 +132,22 @@
             this.label6.Size = new System.Drawing.Size(746, 5);
             this.label6.TabIndex = 38;
             // 
-            // listView2
+            // lstAllEpisodes
             // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2});
-            this.listView2.HideSelection = false;
-            this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem4});
-            this.listView2.Location = new System.Drawing.Point(1, 570);
-            this.listView2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(519, 354);
-            this.listView2.TabIndex = 33;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.lstAllEpisodes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader2,
+            this.columnHeader1,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.lstAllEpisodes.HideSelection = false;
+            this.lstAllEpisodes.Location = new System.Drawing.Point(26, 560);
+            this.lstAllEpisodes.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.lstAllEpisodes.Name = "lstAllEpisodes";
+            this.lstAllEpisodes.Size = new System.Drawing.Size(519, 354);
+            this.lstAllEpisodes.TabIndex = 33;
+            this.lstAllEpisodes.UseCompatibleStateImageBehavior = false;
+            this.lstAllEpisodes.View = System.Windows.Forms.View.Details;
             // 
             // button4
             // 
@@ -195,31 +200,32 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // columnHeader6
+            // colCategory
             // 
-            this.columnHeader6.Text = "fyr";
+            this.colCategory.Text = "Kategori";
+            this.colCategory.Width = 126;
             // 
-            // tre
+            // colFrequency
             // 
-            this.tre.Text = "tre";
+            this.colFrequency.Text = "Frekvens";
+            this.colFrequency.Width = 56;
             // 
-            // Sammanfattning
+            // colName
             // 
-            this.Sammanfattning.Text = "Sammanfattning";
-            this.Sammanfattning.Width = 128;
+            this.colName.Text = "Namn";
+            this.colName.Width = 128;
             // 
-            // Titel
+            // colEpisode
             // 
-            this.Titel.Text = "Titel";
+            this.colEpisode.Text = "Avsnitt";
             // 
             // lstAllPodcasts
             // 
             this.lstAllPodcasts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Titel,
-            this.Sammanfattning,
-            this.tre,
-            this.columnHeader6,
-            this.columnHeader7});
+            this.colEpisode,
+            this.colName,
+            this.colFrequency,
+            this.colCategory});
             this.lstAllPodcasts.HideSelection = false;
             this.lstAllPodcasts.Location = new System.Drawing.Point(1, 13);
             this.lstAllPodcasts.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -228,10 +234,6 @@
             this.lstAllPodcasts.TabIndex = 27;
             this.lstAllPodcasts.UseCompatibleStateImageBehavior = false;
             this.lstAllPodcasts.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader7
-            // 
-            this.columnHeader7.Text = "fem";
             // 
             // textBox1
             // 
@@ -307,11 +309,22 @@
             this.label8.TabIndex = 41;
             this.label8.Text = "Uppdateringsfrekvens:";
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(571, 652);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(124, 110);
+            this.button7.TabIndex = 42;
+            this.button7.Text = "button7";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1543, 1000);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
@@ -320,7 +333,7 @@
             this.Controls.Add(this.cboxFrequency);
             this.Controls.Add(this.listView3);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.lstAllEpisodes);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
@@ -336,6 +349,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,18 +365,17 @@
         private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView lstAllEpisodes;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader tre;
-        private System.Windows.Forms.ColumnHeader Sammanfattning;
-        private System.Windows.Forms.ColumnHeader Titel;
+        private System.Windows.Forms.ColumnHeader colCategory;
+        private System.Windows.Forms.ColumnHeader colFrequency;
+        private System.Windows.Forms.ColumnHeader colName;
+        private System.Windows.Forms.ColumnHeader colEpisode;
         private System.Windows.Forms.ListView lstAllPodcasts;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
@@ -371,6 +384,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }
 

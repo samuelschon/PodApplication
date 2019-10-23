@@ -28,6 +28,10 @@ namespace Gui
             controller.createFeed(txtUrl.Text, cboxFrequency.SelectedIndex.ToString(), cboxCategory.SelectedIndex.ToString());
 
 
+
+
+
+
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -37,7 +41,7 @@ namespace Gui
 
         private void button2_Click(object sender, EventArgs e)
         {
-           List<Feed> aList = controller.getFeed();
+           //List<Feed> aList = controller.getFeed();
           
 
 
@@ -46,6 +50,34 @@ namespace Gui
         private void button5_Click(object sender, EventArgs e)
         {
             
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+           
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           controller.createFeed("https://api.sr.se/api/rss/program/407", "Var 5:e minut", "Humor");
+            controller.createFeed("https://api.sr.se/api/rss/program/407", "Var 10:e minut", "Humor");
+
+
+
+
+            List<ListViewItem> korv = controller.loadFeed();
+            List<ListViewItem> korv2 = controller.loadEpisodes();
+
+
+
+            lstAllPodcasts.Items.AddRange(korv.ToArray());
+            lstAllEpisodes.Items.AddRange(korv2.ToArray());
+
+
+
+
 
         }
     }
