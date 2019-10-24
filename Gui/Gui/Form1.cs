@@ -55,14 +55,15 @@ namespace Gui
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Serializer.Serialize();
+
+            Serializer.Deserialize();
            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
            controller.createFeed("https://api.sr.se/api/rss/program/407", "Var 5:e minut", "Humor");
-            controller.createFeed("https://api.sr.se/api/rss/program/407", "Var 10:e minut", "Humor");
+           controller.createFeed("https://api.sr.se/api/rss/program/407", "Var 10:e minut", "Humor");
 
 
 

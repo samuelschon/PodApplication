@@ -14,14 +14,16 @@ namespace Logic
     public class Serializer
     {
 
-        public static void Serialize()
+        private static string path = Environment.CurrentDirectory + "\\dataxml.xml"; //Hamnar i PodApplication\Gui\Gui\Bin\Debug
+
+        public static void Serialize(Feed feed)
         {
 
-            Feed feed = new Feed();
+            
 
            XmlSerializer writer = new XmlSerializer(typeof(Feed));
 
-            var path = Environment.CurrentDirectory + "\\dataxml.xml"; //Hamnar i PodApplication\Gui\Gui\Bin\Debug
+           
 
             if (!File.Exists(path))
             {
@@ -40,19 +42,18 @@ namespace Logic
             }
         }
 
-        public static string Deserialize() { //Deserialiserar objektet i XML filen, returnerar värdet på dess "Name" property
+        public static Feed Deserialize() { 
 
-            //Har bara testat på ett objekt
+           
+            Feed feed;
+           
+            StreamReader xmlStreamReader = new StreamReader(path);
+            XmlSerializer serializer = new XmlSerializer(typeof(Feed));
 
-            Podcast podcast;
-            //Filutpekningen nedan måste såklart ändras
-            StreamReader xmlStreamReader = new StreamReader(@"C:\Users\Henrik\source\repos\PodApplication\Gui\Testmapp\dokument.xml");
-            XmlSerializer serializer = new XmlSerializer(typeof(Podcast));
+            feed = (Feed) serializer.Deserialize(xmlStreamReader);
+            xmlStreamReader.Close();
 
-            podcast = (Podcast) serializer.Deserialize(xmlStreamReader);
-
-            string name = podcast.Name;
-            return name;
+            return feed;
         
         }
 

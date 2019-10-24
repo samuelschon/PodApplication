@@ -35,7 +35,7 @@ namespace Logic.Controllers
 
             Feed a = new Feed(feed.Title.Text, inFrequency, inCategory, list);
 
-            listOfFeeds.Add(a);
+            Serializer.Serialize(a);
 
 
         }
