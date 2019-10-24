@@ -17,22 +17,27 @@ namespace Logic
         public static void Serialize()
         {
 
+            Feed feed = new Feed();
 
-            XmlSerializer xsSubmit = new XmlSerializer(typeof(Feed));
-            var subReq = new Feed();
-            var xml = "Doc.xml";
+           XmlSerializer writer = new XmlSerializer(typeof(Feed));
 
-            using (var sww = new StringWriter())
+            var path = Environment.CurrentDirectory + "\\dataxml.xml"; //Hamnar i PodApplication\Gui\Gui\Bin\Debug
+
+            if (!File.Exists(path))
             {
-                using (XmlWriter writer = XmlWriter.Create(sww))
-                {
-                    xsSubmit.Serialize(writer, subReq);
-                    xml = sww.ToString(); // Your XML
-                }
+
+                using (FileStream file = File.Create(path))
+
+                    writer.Serialize(file, feed);
             }
 
+            else {
 
+                using (FileStream file = new FileStream(path, FileMode.Append))
 
+                    writer.Serialize(file, feed);
+            
+            }
         }
 
         public static string Deserialize() { //Deserialiserar objektet i XML filen, returnerar värdet på dess "Name" property
