@@ -11,27 +11,39 @@ namespace Logic.Models
 
     {
 
-        public SyndicationFeed feed;
+  
 
-        public List<Episode> episodes;
+   
         public int AmountOfParts { get; set; }
         public string Name { get; set; }
         public string Frequency { get; set; }
         public string Category { get; set; }
-       
+        public List<Episode> episodes  { get; set; }
 
 
 
-
-        public Feed(SyndicationFeed inFeed, string inFrequency, string inCategory)
+        public Feed()
         {
 
-            feed = inFeed;
-            Frequency = inFrequency;
-            Category = inCategory;
+            Name = "körven";
+            Frequency = "111";
+            Category = "1212";
 
 
         }
+
+        public Feed(string inName, string inFrequency, string inCategory , List<Episode>inList)
+        {
+
+            Name = inName;
+            Frequency = inFrequency;
+            Category = inCategory;
+            episodes = inList;
+
+
+        }
+        
+
 
     }
 

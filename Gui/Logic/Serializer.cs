@@ -1,4 +1,5 @@
 ﻿using Data;
+using Logic.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,16 +16,22 @@ namespace Logic
 
         public static void Serialize()
         {
-            //Podcast podcast = new Podcast("EttNAMN", 123);
 
-            //XmlSerializer writer = new XmlSerializer(typeof(Podcast));
 
-            //var path = @"C:\Users\Henrik\source\repos\PodApplication\Gui\Testmapp\dokument.xml";
-            //    FileStream file = File.Create(path);
+            XmlSerializer xsSubmit = new XmlSerializer(typeof(Feed));
+            var subReq = new Feed();
+            var xml = "Doc.xml";
 
-            //    writer.Serialize(file, podcast);
-            //    file.Close();
-         
+            using (var sww = new StringWriter())
+            {
+                using (XmlWriter writer = XmlWriter.Create(sww))
+                {
+                    xsSubmit.Serialize(writer, subReq);
+                    xml = sww.ToString(); // Your XML
+                }
+            }
+
+
 
         }
 

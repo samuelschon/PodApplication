@@ -24,9 +24,20 @@ namespace Logic.Controllers
             //listOfFeeds.Add(feed);
             xmlFeedReader.Close();
 
-            Feed a = new Feed(feed, inFrequency, inCategory);
+
+            List<Episode> list = new List<Episode>();
+
+            foreach (SyndicationItem oneSyndicationFeed in feed.Items)
+            {
+                list.Add(new Episode(oneSyndicationFeed.Title.Text));
+          
+            }
+
+            Feed a = new Feed(feed.Title.Text, inFrequency, inCategory, list);
 
             listOfFeeds.Add(a);
+
+
         }
 
         public  List<ListViewItem> loadFeed()
@@ -37,9 +48,9 @@ namespace Logic.Controllers
             {
                 ListViewItem oneRow = new ListViewItem();
                 oneRow.Text = ("");
-                oneRow.SubItems.Add(oneSyndicationFeed.feed.Title.Text);
-                oneRow.SubItems.Add(oneSyndicationFeed.Frequency);
-                oneRow.SubItems.Add(oneSyndicationFeed.Category);
+                //oneRow.SubItems.Add(oneSyndicationFeed.Title.Text);
+                //oneRow.SubItems.Add(oneSyndicationFeed.Frequency);
+                //oneRow.SubItems.Add(oneSyndicationFeed.Category);
 
 
 
@@ -56,22 +67,22 @@ namespace Logic.Controllers
             foreach (Feed item in listOfFeeds)
             {
 
-                foreach (SyndicationItem anItem in item.feed.Items)
-                {
-                    i++;
+                //foreach (SyndicationItem anItem in item.feed.Items)
+                //{
+                //    i++;
 
 
-                    ListViewItem oneEpisode = new ListViewItem();
-                    oneEpisode.Text = (i.ToString());
-                    oneEpisode.SubItems.Add(anItem.Title.Text);
-                    oneEpisode.SubItems.Add(anItem.PublishDate.DateTime.ToString());
-                    oneEpisode.SubItems.Add(anItem.Summary.Text);
+                //    ListViewItem oneEpisode = new ListViewItem();
+                //    oneEpisode.Text = (i.ToString());
+                //    oneEpisode.SubItems.Add(anItem.Title.Text);
+                //    oneEpisode.SubItems.Add(anItem.PublishDate.DateTime.ToString());
+                //    oneEpisode.SubItems.Add(anItem.Summary.Text);
 
-                    allEpisodes.Add(oneEpisode);
+                //    allEpisodes.Add(oneEpisode);
 
 
 
-                }
+                //}
                 
 
             }
