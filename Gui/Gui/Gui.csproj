@@ -89,6 +89,10 @@
       <Project>{971ab092-b412-46d6-9b88-78cead30936a}</Project>
       <Name>Logic</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedModels\SharedModels.csproj">
+      <Project>{AA723AD7-5EE2-4D76-B7F3-781FB5E330AB}</Project>
+      <Name>SharedModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

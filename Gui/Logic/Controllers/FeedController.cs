@@ -18,39 +18,46 @@ namespace Logic.Controllers
 
         public void createFeed(string url, string inFrequency, string inCategory)
         {
-            XmlReader xmlFeedReader = XmlReader.Create(url);
-            SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlFeedReader);
-            xmlFeedReader.Close();
+         
+            SyndicationFeed syndicationFeed = RssReader.ReadRss(url);
 
-            List <Episode> listOfEpisodes = new List<Episode>();
+            var name = syndicationFeed.Title.Text;
+            var numberOfEpisodes = getEpisodes(url).Count;
+            Feed feed = new Feed(numberOfEpisodes, name, inFrequency, inCategory, getEpisodes(url));
 
-            foreach (SyndicationItem syndicationItem in syndicationFeed.Items)
+            AddFeed(feed, Environment.CurrentDirectory + "\\test.json");
+        }
+        public List<Feed> GetAllFeeds()
+        {
+            return serializer.Deserialize(Environment.CurrentDirectory + "\\test.json");
+        }
+
+
+
+
+        public static List<Episode> getEpisodes(string url)
+        {
+            List<Episode> allEpisodes = new List<Episode>();
+            SyndicationFeed feed = RssReader.ReadRss(url);
+
+            foreach (SyndicationItem syndicationItem in feed.Items.ToList())
             {
                 Episode episode = new Episode(syndicationItem.Title.Text);
 
-                listOfEpisodes.Add(episode);
+                allEpisodes.Add(episode);
 
             }
 
-            var numberOfEpisodes = syndicationFeed.Items.Count();
-            var name = syndicationFeed.Title.Text;
-            
+            return allEpisodes;
 
-            Feed feed = new Feed(numberOfEpisodes, name, inFrequency, inCategory, listOfEpisodes);
+        }
 
+        public void AddFeed(Feed feed, string path)
+        {
 
-            //Serialisera feed till json med serializer metoden
+           serializer.Serialize(path, feed);
 
-            string path = Environment.CurrentDirectory + "\\test.json";
-            
-            
-            
-            serializer.Serialize(path, feed);
-            serializer.Deserialize(path);
-
-          
-
-    
+            GetAllFeeds();
 
         }
 

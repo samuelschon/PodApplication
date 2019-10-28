@@ -10,17 +10,50 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
 using Logic.Controllers;
-
-
+using SharedModels.Models;
 
 namespace Gui
 {
     public partial class txtUpdateFrequency : Form
     {
         FeedController controller = new FeedController();
+        private List<Feed> allAvailibleFeeds;
         public txtUpdateFrequency()
         {
             InitializeComponent();
+            allAvailibleFeeds = new List<Feed>();
+            LoadAllFeeds();
+
+        }
+
+
+
+
+        private void LoadAllFeeds()
+        {
+            var feeds = controller.GetAllFeeds();
+            if (feeds != null)
+            {
+                allAvailibleFeeds = feeds;
+                UpdateFeedList();
+            }
+
+        }
+        private void UpdateFeedList()
+        {
+            lstAllFeeds.Items.Clear();
+            foreach (Feed oneFeed in allAvailibleFeeds)
+            {
+                ListViewItem oneListRow = new ListViewItem();
+                oneListRow.Text = oneFeed.Episodes.Count.ToString();
+                oneListRow.SubItems.Add(oneFeed.Name);
+                oneListRow.SubItems.Add(oneFeed.Category);
+                oneListRow.SubItems.Add(oneFeed.Frequency);
+
+                lstAllFeeds.Items.Add(oneListRow);
+            }
+      
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,13 +95,15 @@ namespace Gui
 
         private void Form1_Load(object sender, EventArgs e)
         {
-      
-      
+
+            cboxFrequency.SelectedIndex = 0;
+            cboxCategory.SelectedIndex = 0;
 
 
 
 
-           
+
+
 
 
 
@@ -83,6 +118,26 @@ namespace Gui
 
         private void label5_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnDeleteFeed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnNewFeed_Click(object sender, EventArgs e)
+        {
+            controller.createFeed(txtUrl.Text, cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
+            LoadAllFeeds();
+            UpdateFeedList();
+        }
+
+        private void lstAllFeeds_DoubleClick(object sender, EventArgs e)
+        {
+
+
+
 
         }
     }

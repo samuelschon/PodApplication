@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SharedModels.Models;
-using System.IO;
 using Newtonsoft.Json.Linq;
 
 namespace Data.Services
@@ -61,6 +60,7 @@ namespace Data.Services
 
             //Lägger json i en lista.
             List<Feed> feeez = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Feed>>(json);
+        
             return feeez;
         }
 
