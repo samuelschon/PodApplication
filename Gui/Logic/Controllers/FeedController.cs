@@ -6,100 +6,49 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Data.Services;
 using Logic;
-using Logic.Models;
-
+using SharedModels.Models;
 
 namespace Logic.Controllers
 {
     public  class FeedController
     {
-
-        public List<Feed> listOfFeeds = new List<Feed>();
+        private SerializerService serializer = new SerializerService();
 
         public void createFeed(string url, string inFrequency, string inCategory)
         {
             XmlReader xmlFeedReader = XmlReader.Create(url);
-            SyndicationFeed feed = SyndicationFeed.Load(xmlFeedReader);
-            //listOfFeeds.Add(feed);
+            SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlFeedReader);
             xmlFeedReader.Close();
 
+            List <Episode> listOfEpisodes = new List<Episode>();
 
-            List<Episode> list = new List<Episode>();
-
-            foreach (SyndicationItem oneSyndicationFeed in feed.Items)
+            foreach (SyndicationItem syndicationItem in syndicationFeed.Items)
             {
-                list.Add(new Episode(oneSyndicationFeed.Title.Text));
+                Episode episode = new Episode(syndicationItem.Title.Text);
+
+                listOfEpisodes.Add(episode);
+
+            }
+
+            var numberOfEpisodes = syndicationFeed.Items.Count();
+            var name = syndicationFeed.Title.Text;
+            
+
+            Feed feed = new Feed(numberOfEpisodes, name, inFrequency, inCategory, listOfEpisodes);
+
+            //Serialisera feed till json med serializer metoden
+
+            string path = @"C:\Users\Henrik\source\repos\PodApplicationSamuel\Gui\Logic\test.json";
+
+            serializer.Serialize(path, feed);
+
           
-            }
 
-            Feed a = new Feed(feed.Title.Text, inFrequency, inCategory, list);
-
-            Serializer.Serialize(a);
-
+    
 
         }
-
-        public  List<ListViewItem> loadFeed()
-        {
-            List<ListViewItem> allFeeds = new List<ListViewItem>();
-
-            foreach (Feed oneSyndicationFeed in listOfFeeds)
-            {
-                ListViewItem oneRow = new ListViewItem();
-                oneRow.Text = ("");
-                //oneRow.SubItems.Add(oneSyndicationFeed.Title.Text);
-                //oneRow.SubItems.Add(oneSyndicationFeed.Frequency);
-                //oneRow.SubItems.Add(oneSyndicationFeed.Category);
-
-
-
-                allFeeds.Add(oneRow);
-            }
-
-                return allFeeds;
-        }
-
-        public List<ListViewItem> loadEpisodes()
-        {
-            List<ListViewItem> allEpisodes = new List<ListViewItem>();
-            int i = 0;
-            foreach (Feed item in listOfFeeds)
-            {
-
-                //foreach (SyndicationItem anItem in item.feed.Items)
-                //{
-                //    i++;
-
-
-                //    ListViewItem oneEpisode = new ListViewItem();
-                //    oneEpisode.Text = (i.ToString());
-                //    oneEpisode.SubItems.Add(anItem.Title.Text);
-                //    oneEpisode.SubItems.Add(anItem.PublishDate.DateTime.ToString());
-                //    oneEpisode.SubItems.Add(anItem.Summary.Text);
-
-                //    allEpisodes.Add(oneEpisode);
-
-
-
-                //}
-                
-
-            }
-
-            return allEpisodes;
-
-        }
-
-
-
-
-
-
-
-
-
-
 
         }
 }

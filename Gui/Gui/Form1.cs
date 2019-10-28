@@ -10,22 +10,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
 using Logic.Controllers;
-using Logic.Models;
+
 
 
 namespace Gui
 {
-    public partial class Form1 : Form
+    public partial class txtUpdateFrequency : Form
     {
         FeedController controller = new FeedController();
-        public Form1()
+        public txtUpdateFrequency()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            controller.createFeed(txtUrl.Text, cboxFrequency.SelectedIndex.ToString(), cboxCategory.SelectedIndex.ToString());
+            controller.createFeed(txtUrl.Text, cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
 
 
 
@@ -56,25 +56,19 @@ namespace Gui
         private void button7_Click(object sender, EventArgs e)
         {
 
-            Serializer.Deserialize();
+
            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           controller.createFeed("https://api.sr.se/api/rss/program/407", "Var 5:e minut", "Humor");
-           controller.createFeed("https://api.sr.se/api/rss/program/407", "Var 10:e minut", "Humor");
+      
+      
 
 
 
 
-            List<ListViewItem> korv = controller.loadFeed();
-            List<ListViewItem> korv2 = controller.loadEpisodes();
-
-
-
-            lstAllPodcasts.Items.AddRange(korv.ToArray());
-            lstAllEpisodes.Items.AddRange(korv2.ToArray());
+           
 
 
 

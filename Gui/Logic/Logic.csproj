@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
@@ -43,21 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\FeedController.cs" />
-    <Compile Include="Controllers\PodController.cs" />
-    <Compile Include="Controllers\SerializerService.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Episode.cs" />
-    <Compile Include="Models\Feed.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Serializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj">
       <Project>{9c4dac15-aff1-4aed-b09a-6ffe052c92c3}</Project>
       <Name>Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharedModels\SharedModels.csproj">
+      <Project>{aa723ad7-5ee2-4d76-b7f3-781fb5e330ab}</Project>
+      <Name>SharedModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
