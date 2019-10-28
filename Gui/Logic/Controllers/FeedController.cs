@@ -38,11 +38,15 @@ namespace Logic.Controllers
 
             Feed feed = new Feed(numberOfEpisodes, name, inFrequency, inCategory, listOfEpisodes);
 
+
             //Serialisera feed till json med serializer metoden
 
-            string path = @"C:\Users\Henrik\source\repos\PodApplicationSamuel\Gui\Logic\test.json";
-
+            string path = Environment.CurrentDirectory + "\\test.json";
+            
+            
+            
             serializer.Serialize(path, feed);
+            serializer.Deserialize(path);
 
           
 
