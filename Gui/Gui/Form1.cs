@@ -198,6 +198,30 @@ namespace Gui
             cboxFrequency.SelectedItem = feed.Frequency;
             cboxCategory.SelectedItem = feed.Category;
             lblCurrentFeed.Text = feed.Name;
+
+            LoadEpisodes(feed);
+
+        }
+
+        private void LoadEpisodes(Feed feed)
+        {
+            lstAllEpisodes.Items.Clear();
+            int counter = 0;
+            foreach (Episode oneEpisode in feed.Episodes)
+            {
+                counter++;
+                
+                ListViewItem oneListRow = new ListViewItem();
+
+                oneListRow.Text = counter.ToString();
+                oneListRow.SubItems.Add(oneEpisode.Name);
+
+                lstAllEpisodes.Items.Add(oneListRow);
+            }
+
+           
+
+
         }
 
         private void btnSaveFeedChanges_Click(object sender, EventArgs e)
