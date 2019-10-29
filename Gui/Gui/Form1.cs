@@ -17,12 +17,14 @@ namespace Gui
     public partial class txtUpdateFrequency : Form
     {
         FeedController controller = new FeedController();
+        CategoryController categoryController = new CategoryController();
         private List<Feed> allAvailibleFeeds;
         public txtUpdateFrequency()
         {
             InitializeComponent();
             allAvailibleFeeds = new List<Feed>();
             LoadAllFeeds();
+            LoadCategories();
 
         }
 
@@ -52,8 +54,26 @@ namespace Gui
 
                 lstAllFeeds.Items.Add(oneListRow);
             }
-      
-           
+
+
+        }
+
+        private void LoadCategories()
+        {
+
+            List<Category> categories = categoryController.GetCategories();
+
+
+            boxCategories.Items.Clear();
+
+
+            foreach (var category in categories)
+            {
+                string categoryName = category.Name;
+
+                boxCategories.Items.Add(categoryName);
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,15 +94,15 @@ namespace Gui
 
         private void button2_Click(object sender, EventArgs e)
         {
-           //List<Feed> aList = controller.getFeed();
-          
+            //List<Feed> aList = controller.getFeed();
+
 
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -90,7 +110,7 @@ namespace Gui
         {
 
 
-           
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -113,6 +133,10 @@ namespace Gui
 
         private void button6_Click(object sender, EventArgs e)
         {
+            string categoryInput = txtNewCategoryName.Text;
+            categoryController.CreateCategory(categoryInput);
+            LoadCategories();
+
 
         }
 
@@ -138,6 +162,21 @@ namespace Gui
 
 
 
+
+        }
+
+        private void btnRemoveCategory_Click(object sender, EventArgs e)
+        {
+            string selectedCategory = boxCategories.SelectedItem.ToString();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

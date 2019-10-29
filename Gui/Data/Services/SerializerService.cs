@@ -12,7 +12,8 @@ namespace Data.Services
 {
     public class SerializerService
     {
-
+        //string categoryPath = Environment.CurrentDirectory + "\\categories.json";
+        string categoryPath = @"C:\Users\Henrik\source\repos\PodApplication\Gui\Logic\categories.json";
         public void Serialize(string path, Feed inObject)
         {
             List<Feed> listOfExistingItems = new List<Feed>();
@@ -53,6 +54,34 @@ namespace Data.Services
             }
         }
 
+
+        public void SerializeCategory(Category category) {
+
+            var serializer = CreateSerializer();
+            List<Category> categories = new List<Category>();
+
+            if (File.Exists(categoryPath)) {
+
+                categories = DeserializeCategory();
+            
+            }
+
+            categories.Add(category);
+
+                using (var sw = new StreamWriter(categoryPath))
+                {
+                    using (var jw = new JsonTextWriter(sw))
+                    {
+                        serializer.Serialize(jw, categories);
+
+                    }
+                
+            }
+
+        }
+
+
+
         public List<Feed> Deserialize(string path)
         {
             List<Feed> feeez = new List<Feed>();
@@ -67,6 +96,26 @@ namespace Data.Services
             }
 
             return feeez;
+        }
+
+        public List<Category> DeserializeCategory()
+        {
+
+            List<Category> categories = new List<Category>();
+
+            if (File.Exists(categoryPath))
+            {
+                //Läser Json - Text
+                var json = System.IO.File.ReadAllText(categoryPath);
+
+                //Lägger json i en lista.
+                categories = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Category>>(json);
+
+            }
+
+
+            return categories;
+
         }
 
 
