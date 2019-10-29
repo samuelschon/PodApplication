@@ -55,12 +55,17 @@ namespace Data.Services
 
         public List<Feed> Deserialize(string path)
         {
-            //Läser Json - Text
-            var json = System.IO.File.ReadAllText(path);
+            List<Feed> feeez = new List<Feed>();
+            if (File.Exists(path))
+            {
+                //Läser Json - Text
+                var json = System.IO.File.ReadAllText(path);
 
-            //Lägger json i en lista.
-            List<Feed> feeez = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Feed>>(json);
-        
+                //Lägger json i en lista.
+               feeez = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Feed>>(json);
+          
+            }
+
             return feeez;
         }
 
