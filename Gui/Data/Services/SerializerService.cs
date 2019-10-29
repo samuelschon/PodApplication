@@ -161,6 +161,16 @@ namespace Data.Services
 
         }
 
+        
+        public void DeleteAllCategories() {
+
+            if (File.Exists(categoryPath)) { 
+            
+                File.Delete(categoryPath);
+            
+            }
+        
+        }
 
         private JsonSerializer CreateSerializer()
         {
