@@ -35,9 +35,36 @@ namespace Logic.Controllers
         
         }
 
+        public void EditCategory(string oldName, string newName)
+        {
+            DeleteCategory(oldName);
+            CreateCategory(newName);
+
+        }
+
         public List<Category> GetCategories() {
 
            return serializer.DeserializeCategory();
+        
+        
+        }
+
+        public bool DoesCategoryExist(string categoryName) {
+
+            bool exists = false;
+
+
+            foreach (Category category in GetCategories())
+            {
+                if (category.Name == categoryName) {
+
+                    exists = true;
+                    break;
+                
+                }
+            }
+
+            return exists;
         
         
         }

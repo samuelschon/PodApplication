@@ -22,7 +22,10 @@ namespace Gui
         public txtUpdateFrequency()
         {
             InitializeComponent();
-          
+            txtEditCategoryNewName.Visible = false;
+            btnSaveCategoryEdit.Visible = false;
+
+
             LoadAllFeeds();
             LoadCategories();
 
@@ -110,17 +113,21 @@ namespace Gui
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            cboxFrequency.SelectedIndex = 0;
-            cboxCategory.SelectedIndex = 0;
+            //cboxFrequency.SelectedIndex = 0;
+            //cboxCategory.SelectedIndex = 0;
 
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             string categoryInput = txtNewCategoryName.Text;
-            categoryController.CreateCategory(categoryInput);
-            LoadCategories();
+            if (!categoryController.DoesCategoryExist(categoryInput))
+            {
+                categoryController.CreateCategory(categoryInput);
+                LoadCategories();
+            }
 
+            else { txtNewCategoryName.Text = "Kategorin finns redan"; } //Ska tas bort
 
         }
 
@@ -206,6 +213,37 @@ namespace Gui
             }
             
 
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            txtEditCategoryNewName.Visible = true;
+            btnSaveCategoryEdit.Visible = true;
+        }
+
+        private void btnSaveCategoryEdit_Click(object sender, EventArgs e)
+        {
+            string selectedCategoryName = boxCategories.SelectedItem.ToString();
+            string newCategoryName = txtEditCategoryNewName.Text;
+
+            if (!categoryController.DoesCategoryExist(newCategoryName))
+            {
+
+                categoryController.EditCategory(selectedCategoryName, newCategoryName);
+                LoadCategories();
+                txtEditCategoryNewName.Visible = false;
+                    btnSaveCategoryEdit.Visible = false;
+        
+
+
+            }
+
+            else { txtEditCategoryNewName.Text = "Kategorin finns redan"; }
         }
     }
 }
