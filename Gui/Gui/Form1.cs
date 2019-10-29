@@ -18,32 +18,32 @@ namespace Gui
     {
         FeedController controller = new FeedController();
         CategoryController categoryController = new CategoryController();
-        private List<Feed> allAvailibleFeeds;
+      
         public txtUpdateFrequency()
         {
             InitializeComponent();
-            allAvailibleFeeds = new List<Feed>();
+          
             LoadAllFeeds();
             LoadCategories();
 
         }
 
-
-
-
         private void LoadAllFeeds()
         {
-            var feeds = controller.GetAllFeeds();
-            if (feeds != null)
-            {
-                allAvailibleFeeds = feeds;
-                UpdateFeedList();
-            }
+             List<Feed> allAvailibleFeeds = new List<Feed>();
+
+             allAvailibleFeeds = controller.GetAllFeeds();
+             UpdateFeedList();
+            
 
         }
         private void UpdateFeedList()
         {
+            List<Feed> allAvailibleFeeds = new List<Feed>();
+            allAvailibleFeeds = controller.GetAllFeeds();
+            
             lstAllFeeds.Items.Clear();
+
             foreach (Feed oneFeed in allAvailibleFeeds)
             {
                 ListViewItem oneListRow = new ListViewItem();
@@ -80,11 +80,6 @@ namespace Gui
         {
             controller.createFeed(txtUrl.Text, cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
 
-
-
-
-
-
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,9 +89,6 @@ namespace Gui
 
         private void button2_Click(object sender, EventArgs e)
         {
-            //List<Feed> aList = controller.getFeed();
-
-
 
         }
 
@@ -109,8 +101,6 @@ namespace Gui
         private void button7_Click(object sender, EventArgs e)
         {
 
-
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -118,16 +108,6 @@ namespace Gui
 
             cboxFrequency.SelectedIndex = 0;
             cboxCategory.SelectedIndex = 0;
-
-
-
-
-
-
-
-
-
-
 
         }
 
@@ -147,7 +127,14 @@ namespace Gui
 
         private void btnDeleteFeed_Click(object sender, EventArgs e)
         {
+            if (lstAllFeeds.SelectedItems.Count > 0)
+            {
+                var selectedFeed = lstAllFeeds.SelectedItems[0].SubItems[1].Text;
+                controller.DeleteFeed(selectedFeed);
 
+                UpdateFeedList();
+            }
+           
         }
 
         private void btnNewFeed_Click(object sender, EventArgs e)
@@ -177,6 +164,41 @@ namespace Gui
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            controller.createFeed("https://api.sr.se/api/rss/program/2447", cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
+            LoadAllFeeds();
+            UpdateFeedList();
+        }
+
+        private void lstAllFeeds_MouseClick(object sender, MouseEventArgs e)
+        {
+            var feedName = lstAllFeeds.SelectedItems[0].SubItems[1].Text;
+            Feed feed = new Feed();
+            
+            feed = controller.GetSpecificFeed(feedName);
+
+            txtUrl.Text = feed.Url;
+            cboxFrequency.SelectedItem = feed.Frequency;
+            cboxCategory.SelectedItem = feed.Category;
+            lblCurrentFeed.Text = feed.Name;
+        }
+
+        private void btnSaveFeedChanges_Click(object sender, EventArgs e)
+        {
+            if (lblCurrentFeed.Text !=  "")
+            {
+                var Url = txtUrl.Text;
+                var Frequency = cboxFrequency.SelectedItem.ToString();
+                var Category = cboxCategory.SelectedItem.ToString();
+                var nameOfFeed = lblCurrentFeed.Text;
+                controller.UpdateSpecifikFeed(Url, Frequency, Category, nameOfFeed);
+                LoadAllFeeds();
+            }
+            
 
         }
     }

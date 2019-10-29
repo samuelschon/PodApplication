@@ -12,8 +12,9 @@ namespace Data.Services
 {
     public class SerializerService
     {
-        //string categoryPath = Environment.CurrentDirectory + "\\categories.json";
-        string categoryPath = @"C:\Users\Henrik\source\repos\PodApplication\Gui\Logic\categories.json";
+        string categoryPath = Environment.CurrentDirectory + "\\categories.json";
+        //string categoryPath = @"C:\Users\Henrik\source\repos\PodApplication\Gui\Logic\categories.json";
+     
         public void Serialize(string path, Feed inObject)
         {
             List<Feed> listOfExistingItems = new List<Feed>();
@@ -53,6 +54,48 @@ namespace Data.Services
                 }
             }
         }
+
+
+        public void SerializeList(string path, List<Feed> inListFeeds)
+        {
+           
+
+            //Om filen finns läser vi ut den och lägger till den fil man vill lägg till och skriver över det befintliga som var där innan.
+            if (File.Exists(path))
+            {
+               
+   
+                var serializer = CreateSerializer();
+
+                using (var sw = new StreamWriter(path))
+                {
+                    using (var jw = new JsonTextWriter(sw))
+                    {
+                        serializer.Serialize(jw, inListFeeds);
+
+                    }
+                }
+
+            }
+
+            //annars skapar vi en ny fil och lägger till detta objekt i listan som är deklarerad högst upp i metoden(listOFExistingItems)
+            else
+            {
+                using (var sw = new StreamWriter(path))
+                {
+                    using (var jw = new JsonTextWriter(sw))
+                    {
+                        var serializer = CreateSerializer();
+                      
+                        serializer.Serialize(jw, inListFeeds);
+
+                    }
+                }
+            }
+        }
+
+
+
 
 
         public void SerializeCategory(Category category) {

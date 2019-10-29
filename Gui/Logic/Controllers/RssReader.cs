@@ -15,12 +15,25 @@ namespace Logic.Controllers
 
         public static SyndicationFeed ReadRss(string url)
         {
-            XmlReader xmlFeedReader = XmlReader.Create(url);
-            SyndicationFeed feed = SyndicationFeed.Load(xmlFeedReader);
-         
-            xmlFeedReader.Close();
+            SyndicationFeed feed = new SyndicationFeed();
+            try
+            {
+                XmlReader xmlFeedReader = XmlReader.Create(url);
+                feed = SyndicationFeed.Load(xmlFeedReader);
+                xmlFeedReader.Close();
 
 
+
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+          
             return feed;
         }
 

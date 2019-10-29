@@ -10,6 +10,7 @@ namespace SharedModels.Models
         public string Name { get; set; }
         public string Frequency { get; set; }
         public string Category { get; set; }
+        public string Url { get; set; }
         public List<Episode> Episodes { get; set; }
 
 
@@ -24,7 +25,7 @@ namespace SharedModels.Models
 
         }
 
-        public Feed(int numberOfEpisodes, string name, string frequency, string category, List<Episode> episodes)
+        public Feed(int numberOfEpisodes, string name, string frequency, string category, List<Episode> episodes, string url)
         {
 
             NumberOfEpisodes = numberOfEpisodes;
@@ -32,7 +33,7 @@ namespace SharedModels.Models
             Frequency = frequency;
             Category = category;
             Episodes = episodes;
-
+            Url = url;
 
         }
        
