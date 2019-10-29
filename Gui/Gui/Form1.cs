@@ -65,6 +65,7 @@ namespace Gui
 
 
             boxCategories.Items.Clear();
+            cboxCategory.Items.Clear();
 
 
             foreach (var category in categories)
@@ -72,7 +73,10 @@ namespace Gui
                 string categoryName = category.Name;
 
                 boxCategories.Items.Add(categoryName);
+                cboxCategory.Items.Add(categoryName);
             }
+
+
 
         }
 
@@ -167,7 +171,9 @@ namespace Gui
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
-            string selectedCategory = boxCategories.SelectedItem.ToString();
+            string selectedCategoryName = boxCategories.SelectedItem.ToString();
+            categoryController.DeleteCategory(selectedCategoryName);
+            LoadCategories();
         }
 
         private void button1_Click_1(object sender, EventArgs e)

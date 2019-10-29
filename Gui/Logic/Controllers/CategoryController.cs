@@ -20,9 +20,18 @@ namespace Logic.Controllers
         
         }
 
-        private void DeleteCategory(string categoryName) {
-        
-        
+        public void DeleteCategory(string categoryName) {
+
+            List<Category> currentCategories = serializer.DeserializeCategory();
+
+             currentCategories.RemoveAll(x => x.Name == categoryName);
+
+            serializer.DeleteAllCategories();
+
+            foreach  (Category category in currentCategories)
+            {
+                serializer.SerializeCategory(category);
+            }
         
         }
 
