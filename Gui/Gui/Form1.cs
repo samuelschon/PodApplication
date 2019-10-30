@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
 using Logic.Controllers;
+using Logic.Timers;
 using Logic.Validation;
 using SharedModels.Models;
 
@@ -35,10 +36,19 @@ namespace Gui
         private void LoadAllFeeds()
         {
              List<Feed> allAvailibleFeeds = new List<Feed>();
+            
+            
+
 
              allAvailibleFeeds = controller.GetAllFeeds();
              UpdateFeedList();
-            
+
+            foreach (Feed oneFeed in allAvailibleFeeds)
+            {
+
+                controller.StartFeedTimer(oneFeed);
+            }
+
 
         }
         private void UpdateFeedList()

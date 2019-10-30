@@ -13,10 +13,11 @@ namespace Logic.Timers
         
         public static void StartTimer(Feed feed)
         {
-            
+
+            double minutes = feed.Minutes;
             Timer updateTimer = new Timer();
             updateTimer.Elapsed += TimerElapsedHandler;
-            updateTimer.Interval = 1000;
+            updateTimer.Interval = 1000 * 60 * (minutes*5);
             updateTimer.Enabled = true;
             updateTimer.AutoReset = true;
 
@@ -24,6 +25,7 @@ namespace Logic.Timers
 
         public static void TimerElapsedHandler(object sender, ElapsedEventArgs e)
         {
+            
             System.Windows.Forms.MessageBox.Show("Nu fungerar detta..");
         }
 

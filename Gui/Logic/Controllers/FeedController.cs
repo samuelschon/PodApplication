@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Xml;
 using Data.Services;
 using Logic;
+using Logic.Timers;
 using Logic.Validation;
 using SharedModels.Models;
 
@@ -112,6 +113,17 @@ namespace Logic.Controllers
             return allEpisodes;
 
         }
+
+        public void StartFeedTimer(Feed feed)
+        {
+
+
+            TimerService.StartTimer(feed);
+
+
+
+        }
+
 
         public void AddFeed(Feed feed, string path)
         {

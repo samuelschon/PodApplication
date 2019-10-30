@@ -13,6 +13,8 @@ namespace SharedModels.Models
         public string Url { get; set; }
         public List<Episode> Episodes { get; set; }
 
+        public double Minutes { get; set; }
+
 
 
         public Feed()
@@ -34,6 +36,29 @@ namespace SharedModels.Models
             Category = category;
             Episodes = episodes;
             Url = url;
+
+            switch (frequency)
+            {
+                case "Var 1:a minut":
+                    Minutes = 0.1;
+                    break;
+                case "Var 5:e minut":
+                    Minutes = 5;
+                    break;
+                case "Var 10:e minut":
+                    Minutes = 10;
+                    break;
+                case "Var 15:e minut":
+                    Minutes = 15;
+                    break;
+                case "Var 20:e minut":
+                    Minutes = 20;
+                    break;
+                default:
+                    Minutes = 10;
+                    break;
+            }
+
 
         }
        
