@@ -21,11 +21,6 @@ namespace Logic.Controllers
         public void createFeed(string url, string inFrequency, string inCategory)
         {
 
-
-
-          
-
-          
             SyndicationFeed syndicationFeed = RssReader.ReadRss(url);
 
             if (ValidationService.checkIfRssReturnAFeed(syndicationFeed))
@@ -95,16 +90,51 @@ namespace Logic.Controllers
 
         }
 
+        public void checkIfThereAreNewEpisodes(Feed feed)
+        {
+          
+            try
+            {
+                var inFeedName = feed.Name;
+                int inFeedAmountOfEpisodes = feed.Episodes.Count;
 
 
-        public static List<Episode> getEpisodes(string url)
+                Feed existingFeed = GetSpecificFeed(inFeedName);
+                int existingFeedAmountOfEpisodes = existingFeed.Episodes.Count;
+
+                if (existingFeedAmountOfEpisodes > inFeedAmountOfEpisodes)
+                {
+                    getEpisodes(feed.Url);
+                    MessageBox.Show("Updated " + feed.Name);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                
+            }
+           
+
+           
+
+
+        }
+
+
+        //Ska brytas ut till episodecontroller.
+            public static List<Episode> getEpisodes(string url)
         {
             List<Episode> allEpisodes = new List<Episode>();
             SyndicationFeed feed = RssReader.ReadRss(url);
 
-            foreach (SyndicationItem syndicationItem in feed.Items.ToList())
+
+            //Ska brytas ut till episodecontroller.
+            foreach (SyndicationItem oneEpisode in feed.Items.ToList())
             {
-                Episode episode = new Episode(syndicationItem.Title.Text);
+                Episode episode = new Episode(oneEpisode.Title.Text, oneEpisode.Summary.Text, oneEpisode.PublishDate.DateTime.ToString());
+               
 
                 allEpisodes.Add(episode);
 
@@ -116,11 +146,8 @@ namespace Logic.Controllers
 
         public void StartFeedTimer(Feed feed)
         {
-
-
+            TimerService.StopTimer(feed);
             TimerService.StartTimer(feed);
-
-
 
         }
 
@@ -132,8 +159,12 @@ namespace Logic.Controllers
         public void DeleteFeed(string feedName) {
 
             List<Feed> currentFeed = serializer.Deserialize(Environment.CurrentDirectory + "\\test.json");
-           
+
+            Feed feedToDelete = GetSpecificFeed(feedName);
+            TimerService.StopTimer(feedToDelete);
+
             currentFeed.RemoveAll(x => x.Name == feedName);
+           
 
             serializer.SerializeList(Environment.CurrentDirectory + "\\test.json",currentFeed);
 

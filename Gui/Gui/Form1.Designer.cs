@@ -32,13 +32,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cboxCategory = new System.Windows.Forms.ComboBox();
             this.cboxFrequency = new System.Windows.Forms.ComboBox();
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label6 = new System.Windows.Forms.Label();
             this.lstAllEpisodes = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnRemoveCategory = new System.Windows.Forms.Button();
             this.btnNewCategory = new System.Windows.Forms.Button();
             this.btnDeleteFeed = new System.Windows.Forms.Button();
@@ -64,6 +59,10 @@
             this.txtEditCategoryNewName = new System.Windows.Forms.TextBox();
             this.btnSortFeedsByCategory = new System.Windows.Forms.Button();
             this.btnResetView = new System.Windows.Forms.Button();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label4
@@ -127,11 +126,10 @@
             // lstAllEpisodes
             // 
             this.lstAllEpisodes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader2,
-            this.columnHeader1,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6});
+            this.columnHeader3,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9});
             this.lstAllEpisodes.HideSelection = false;
             this.lstAllEpisodes.Location = new System.Drawing.Point(56, 569);
             this.lstAllEpisodes.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -379,6 +377,22 @@
             this.btnResetView.UseVisualStyleBackColor = true;
             this.btnResetView.Click += new System.EventHandler(this.btnResetView_Click_1);
             // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Number";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Title";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Summary";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Publish date";
+            // 
             // txtUpdateFrequency
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -426,7 +440,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboxCategory;
         private System.Windows.Forms.ComboBox cboxFrequency;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListView lstAllEpisodes;
         private System.Windows.Forms.Button btnRemoveCategory;
@@ -445,10 +458,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ListBox boxCategories;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSaveFeedChanges;
@@ -458,6 +467,10 @@
         private System.Windows.Forms.TextBox txtEditCategoryNewName;
         private System.Windows.Forms.Button btnSortFeedsByCategory;
         private System.Windows.Forms.Button btnResetView;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
     }
 }
 

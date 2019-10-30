@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Timers;
 
 namespace SharedModels.Models
 {
@@ -12,6 +13,8 @@ namespace SharedModels.Models
         public string Category { get; set; }
         public string Url { get; set; }
         public List<Episode> Episodes { get; set; }
+       
+        public Timer updateTimer { get; set; }
 
         public double Minutes { get; set; }
 
@@ -29,7 +32,7 @@ namespace SharedModels.Models
 
         public Feed(int numberOfEpisodes, string name, string frequency, string category, List<Episode> episodes, string url)
         {
-
+            updateTimer = new Timer();
             NumberOfEpisodes = numberOfEpisodes;
             Name = name;
             Frequency = frequency;
@@ -40,7 +43,7 @@ namespace SharedModels.Models
             switch (frequency)
             {
                 case "Var 1:a minut":
-                    Minutes = 0.1;
+                    Minutes = 1;
                     break;
                 case "Var 5:e minut":
                     Minutes = 5;

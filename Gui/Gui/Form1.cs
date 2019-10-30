@@ -8,9 +8,9 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Logic;
+
 using Logic.Controllers;
-using Logic.Timers;
+
 using Logic.Validation;
 using SharedModels.Models;
 
@@ -18,44 +18,40 @@ namespace Gui
 {
     public partial class txtUpdateFrequency : Form
     {
-        FeedController controller = new FeedController();
-        CategoryController categoryController = new CategoryController();
-      
+        private FeedController controller = new FeedController();
+        private CategoryController categoryController = new CategoryController();
+        private List<Feed> allAvailibleFeeds;
         public txtUpdateFrequency()
         {
             InitializeComponent();
             txtEditCategoryNewName.Visible = false;
             btnSaveCategoryEdit.Visible = false;
 
+            allAvailibleFeeds = new List<Feed>();
 
             LoadAllFeeds();
+            UpdateFeedList();
             LoadCategories();
+            starttimers();
 
+        }
+        
+        private void starttimers() {
+
+            
+            foreach (Feed oneFeed in allAvailibleFeeds)
+            {
+                controller.StartFeedTimer(oneFeed);
+            }
         }
 
         private void LoadAllFeeds()
         {
-             List<Feed> allAvailibleFeeds = new List<Feed>();
-            
-            
-
-
              allAvailibleFeeds = controller.GetAllFeeds();
-             UpdateFeedList();
-
-            foreach (Feed oneFeed in allAvailibleFeeds)
-            {
-
-                controller.StartFeedTimer(oneFeed);
-            }
-
-
         }
+
         private void UpdateFeedList()
-        {
-            List<Feed> allAvailibleFeeds = new List<Feed>();
-            allAvailibleFeeds = controller.GetAllFeeds();
-            
+        {   
             lstAllFeeds.Items.Clear();
 
             foreach (Feed oneFeed in allAvailibleFeeds)
@@ -65,7 +61,6 @@ namespace Gui
                 oneListRow.SubItems.Add(oneFeed.Name);
                 oneListRow.SubItems.Add(oneFeed.Category);
                 oneListRow.SubItems.Add(oneFeed.Frequency);
-
                 lstAllFeeds.Items.Add(oneListRow);
             }
         }
@@ -182,7 +177,7 @@ namespace Gui
             {
                 var selectedFeed = lstAllFeeds.SelectedItems[0].SubItems[1].Text;
                 controller.DeleteFeed(selectedFeed);
-
+                LoadAllFeeds();
                 UpdateFeedList();
             }
            
@@ -195,6 +190,7 @@ namespace Gui
                 controller.createFeed(txtUrl.Text, cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
                 LoadAllFeeds();
                 UpdateFeedList();
+                starttimers();
             }
       
         }
@@ -259,6 +255,8 @@ namespace Gui
 
                 oneListRow.Text = counter.ToString();
                 oneListRow.SubItems.Add(oneEpisode.Name);
+                oneListRow.SubItems.Add(oneEpisode.Summary);
+                oneListRow.SubItems.Add(oneEpisode.PublishedDate);
 
                 lstAllEpisodes.Items.Add(oneListRow);
             }
@@ -278,6 +276,8 @@ namespace Gui
                 var nameOfFeed = lblCurrentFeed.Text;
                 controller.UpdateSpecifikFeed(Url, Frequency, Category, nameOfFeed);
                 LoadAllFeeds();
+                UpdateFeedList();
+                starttimers();
             }
             
 
