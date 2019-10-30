@@ -55,6 +55,16 @@ namespace Logic.Validation
 
             return exist;
         }
+        public static Boolean checkIfSpecialLetters(string nameToCheck)
+        {
+            var exist = true;
+            //ARYAN
+        // Om nameTOCheck.contains specialtecken så som #"¤"#%"#&=%?#"!)&=?#¤%!"#
+        // Returnera false
+
+
+            return exist;
+        }
 
 
 

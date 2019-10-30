@@ -153,15 +153,22 @@ namespace Gui
         private void button6_Click(object sender, EventArgs e)
         {
             string categoryInput = txtNewCategoryName.Text;
-            if (!categoryController.DoesCategoryExist(categoryInput))
+
+            if (ValidationService.checkIfSpecialLetters(categoryInput))
             {
-                categoryController.CreateCategory(categoryInput);
-                LoadCategories();
+                if (!categoryController.DoesCategoryExist(categoryInput))
+                {
+                    categoryController.CreateCategory(categoryInput);
+                    LoadCategories();
+                }
+
+                else { txtNewCategoryName.Text = "Kategorin finns redan"; } //Ska tas bort
+
             }
+        } 
 
-            else { txtNewCategoryName.Text = "Kategorin finns redan"; } //Ska tas bort
 
-        }
+           
 
         private void label5_Click(object sender, EventArgs e)
         {
