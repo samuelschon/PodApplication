@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Xml;
 using Data.Services;
 using Logic;
+using Logic.Validation;
 using SharedModels.Models;
 
 namespace Logic.Controllers
@@ -26,12 +27,16 @@ namespace Logic.Controllers
           
             SyndicationFeed syndicationFeed = RssReader.ReadRss(url);
 
+            if (ValidationService.checkIfRssReturnAFeed(syndicationFeed))
+            {
+
+            
             var name = syndicationFeed.Title.Text;
             var numberOfEpisodes = getEpisodes(url).Count;
           
             Feed feed = new Feed(numberOfEpisodes, name, inFrequency, inCategory, getEpisodes(url), url);
            
-            if (!checkIfFeedExist(url))
+            if (!ValidationService.checkIfFeedExist(GetAllFeeds(), url))
             {
                 AddFeed(feed, Environment.CurrentDirectory + "\\test.json");
             }
@@ -39,26 +44,10 @@ namespace Logic.Controllers
             {
                 MessageBox.Show("There is already a feed with this Url.");
             }
-                
-                
-        }
-        public Boolean checkIfFeedExist(string url)
-        {
-            Boolean exist = false;
-            List<Feed> allFeeds = GetAllFeeds();
-            foreach (Feed oneFeed in allFeeds)
-            {
-                if (oneFeed.Url == url)
-                {
-                    exist = true;
-                    break;
-                }
             }
 
-
-            return exist;
         }
-
+        
 
 
         public List<Feed> GetAllFeeds()

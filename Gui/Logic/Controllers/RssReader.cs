@@ -29,9 +29,9 @@ namespace Logic.Controllers
             catch (Exception)
             {
 
-                throw;
+             
             }
-
+            
 
           
             return feed;
