@@ -57,6 +57,27 @@ namespace Gui
 
                 lstAllFeeds.Items.Add(oneListRow);
             }
+        }
+
+        private void UpdateFeedListByCategory(string categoryName) {
+           
+            List<Feed> allAvailibleFeeds = new List<Feed>();
+            allAvailibleFeeds = controller.GetAllFeeds();
+
+            allAvailibleFeeds.RemoveAll(x => x.Category != categoryName);
+
+            lstAllFeeds.Items.Clear();
+
+            foreach (Feed oneFeed in allAvailibleFeeds)
+            {
+                ListViewItem oneListRow = new ListViewItem();
+                oneListRow.Text = oneFeed.Episodes.Count.ToString();
+                oneListRow.SubItems.Add(oneFeed.Name);
+                oneListRow.SubItems.Add(oneFeed.Category);
+                oneListRow.SubItems.Add(oneFeed.Frequency);
+
+                lstAllFeeds.Items.Add(oneListRow);
+            }
 
 
         }
@@ -268,6 +289,18 @@ namespace Gui
             }
 
             else { txtEditCategoryNewName.Text = "Kategorin finns redan"; }
+        }
+
+        private void btnSortFeedsByCategory_Click(object sender, EventArgs e)
+        {
+            string selectedCategoryName = boxCategories.SelectedItem.ToString();
+            UpdateFeedListByCategory(selectedCategoryName);
+
+        }
+
+        private void btnResetView_Click(object sender, EventArgs e)
+        {
+            UpdateFeedList();
         }
     }
 }
