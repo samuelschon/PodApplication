@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic;
 using Logic.Controllers;
+using Logic.Validation;
 using SharedModels.Models;
 
 namespace Gui
@@ -150,9 +151,13 @@ namespace Gui
 
         private void btnNewFeed_Click(object sender, EventArgs e)
         {
-            controller.createFeed(txtUrl.Text, cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
-            LoadAllFeeds();
-            UpdateFeedList();
+            if (ValidationService.validateComboBox(cboxFrequency) && ValidationService.validateComboBox(cboxCategory))
+            {
+                controller.createFeed(txtUrl.Text, cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
+                LoadAllFeeds();
+                UpdateFeedList();
+            }
+      
         }
 
         private void lstAllFeeds_DoubleClick(object sender, EventArgs e)
