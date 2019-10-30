@@ -307,5 +307,16 @@ namespace Gui
         {
             UpdateFeedList();
         }
+
+        private void btnSortFeedsByCategory_Click_1(object sender, EventArgs e)
+        {
+            string selectedCategoryName = boxCategories.SelectedItem.ToString();
+            UpdateFeedListByCategory(selectedCategoryName);
+        }
+
+        private void btnResetView_Click_1(object sender, EventArgs e)
+        {
+            UpdateFeedList();
+        }
     }
 }
