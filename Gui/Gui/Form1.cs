@@ -154,7 +154,8 @@ namespace Gui
         {
             string categoryInput = txtNewCategoryName.Text;
 
-            if (ValidationService.checkIfSpecialLetters(categoryInput))
+            if (ValidationService.checkIfSpecialLetters(categoryInput) && ValidationService.checkLength(categoryInput))
+
             {
                 if (!categoryController.DoesCategoryExist(categoryInput))
                 {

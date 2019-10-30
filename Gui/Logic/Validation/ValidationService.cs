@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -57,15 +58,31 @@ namespace Logic.Validation
         }
         public static Boolean checkIfSpecialLetters(string nameToCheck)
         {
-            var exist = true;
-            //ARYAN
-        // Om nameTOCheck.contains specialtecken så som #"¤"#%"#&=%?#"!)&=?#¤%!"#
-        // Returnera false
+            bool textConfirmation = true;
+            if (!Regex.IsMatch(nameToCheck, @"^[a-zA-Z0-9_ ]+$")) 
+                
+            {
+                
+                textConfirmation = false;
+                MessageBox.Show("Använd inte special tecken i kategori namnet. Exempelvis * , : / % @ ");
+            }
 
-
-            return exist;
+            return textConfirmation;
         }
 
+        public static Boolean checkLength(string lengthToCheck)
+        {
+            bool lengthConfirmation = true;
+            if (lengthToCheck.Length >15 )
+            {
+                lengthConfirmation = false;
+                MessageBox.Show("Namnet får inte vara längre än 10 bokstäver");
+            }
+            return lengthConfirmation;
+        }
+        
+
+        
 
 
 
