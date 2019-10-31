@@ -97,7 +97,6 @@
             this.cboxCategory.Name = "cboxCategory";
             this.cboxCategory.Size = new System.Drawing.Size(104, 24);
             this.cboxCategory.TabIndex = 36;
-            this.cboxCategory.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // cboxFrequency
             // 
@@ -215,6 +214,7 @@
             this.colName,
             this.colFrequency,
             this.colCategory});
+            this.lstAllFeeds.FullRowSelect = true;
             this.lstAllFeeds.HideSelection = false;
             this.lstAllFeeds.Location = new System.Drawing.Point(27, 14);
             this.lstAllFeeds.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);

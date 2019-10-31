@@ -119,27 +119,6 @@ namespace Gui
 
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -218,15 +197,6 @@ namespace Gui
            
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click_2(object sender, EventArgs e)
         {
@@ -264,7 +234,7 @@ namespace Gui
 
                 oneListRow.Text = counter.ToString();
                 oneListRow.SubItems.Add(oneEpisode.Name);
-                oneListRow.SubItems.Add(oneEpisode.Summary;
+                oneListRow.SubItems.Add(oneEpisode.Summary);
                 oneListRow.SubItems.Add(oneEpisode.PublishedDate);
 
                 lstAllEpisodes.Items.Add(oneListRow);
