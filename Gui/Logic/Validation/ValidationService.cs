@@ -20,12 +20,11 @@ namespace Logic.Validation
             if (string.IsNullOrEmpty(box.Text))
             {
                 selected = false;
-                MessageBox.Show("Du måste välja ett värde i listan.");
-                
+                MessageBox.Show("Du måste välja ett värde i listan.");       
             }
-
                 return selected;
         }
+
         public static Boolean validateIfListViewHasSelectedItem(ListView list)
         {
             Boolean selected = true;
@@ -33,10 +32,10 @@ namespace Logic.Validation
             {
                 selected = false;
                 MessageBox.Show("Du måste välja ett värde i listan.");
-
             }
             return selected;
         }
+
             public static Boolean checkIfFeedExist(List<Feed> allFeeds, string url)
         {
             Boolean exist = false;
@@ -49,10 +48,9 @@ namespace Logic.Validation
                     break;
                 }
             }
-
-
             return exist;
         }
+
         public static Boolean checkIfRssReturnAFeed(SyndicationFeed feed)
         {
             var exist = true;
@@ -61,22 +59,17 @@ namespace Logic.Validation
                 exist = false;
                 MessageBox.Show("Något är fel med RSS-Länken.");
             }
-
-
-
             return exist;
         }
+
         public static Boolean checkIfSpecialLetters(string nameToCheck)
         {
             bool textConfirmation = true;
-            if (!Regex.IsMatch(nameToCheck, @"^[a-zA-Z0-9_ ]+$")) 
-                
-            {
-                
+            if (!Regex.IsMatch(nameToCheck, @"^[a-zA-Z0-9_ ]+$"))             
+            {               
                 textConfirmation = false;
                 MessageBox.Show("Använd inte special tecken i kategori namnet. Exempelvis * , : / % @ ");
             }
-
             return textConfirmation;
         }
 

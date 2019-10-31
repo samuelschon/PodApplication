@@ -16,6 +16,5 @@ namespace SharedModels.Models
             Summary = summary;
             PublishedDate = publishedDate;
         }
-
     }
 }

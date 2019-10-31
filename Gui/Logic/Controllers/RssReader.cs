@@ -11,8 +11,6 @@ namespace Logic.Controllers
 {
    public static class RssReader
     {
-
-
         public static SyndicationFeed ReadRss(string url)
         {
             SyndicationFeed feed = new SyndicationFeed();
@@ -21,10 +19,6 @@ namespace Logic.Controllers
                 XmlReader xmlFeedReader = XmlReader.Create(url);
                 feed = SyndicationFeed.Load(xmlFeedReader);
                 xmlFeedReader.Close();
-
-
-
-
             }
             catch (Exception)
             {

@@ -14,8 +14,7 @@ namespace Logic.Timers
     {
         
         public static void StartTimer(Feed feed)
-        {
-           
+        {          
             Timer updateTimer = feed.updateTimer;
             updateTimer.Stop();
             updateTimer.Start();
@@ -26,50 +25,31 @@ namespace Logic.Timers
             updateTimer.Enabled = true;
             updateTimer.AutoReset = true;
         }
-        public static void StopTimer(Feed feed)
-        {
 
-          
-            Timer updateTimer = feed.updateTimer;
-            updateTimer.Interval = 1000 * 500000;
+        public static void StopTimer(Feed feed)
+        {        
+            Timer updateTimer = feed.updateTimer;          
 
             updateTimer.Stop();
-         
-           
-
         }
    
         public static void TimerElapsedHandler(object sender, ElapsedEventArgs e, Feed feed)
         {
-           
-
-                FeedController controller = new FeedController();
-
+            FeedController controller = new FeedController();
             string aa = feed.Name;
+
             if (controller.GetAllFeeds().Where(c=>c.Name == feed.Name).Count() > 0)
             {
                 controller.checkIfThereAreNewEpisodes(feed);
-
-
-
-
+                
                 System.Windows.Forms.MessageBox.Show(feed.Name + " TimerElapsedHandler kördes, start timer");
-  
             }
             else
             {
                 StopTimer(feed);
 
-                System.Windows.Forms.MessageBox.Show(feed.Name + " TimerElapsedHandler kördes, stop timer");
-     
-            }
-            
-
-            
-            
+                System.Windows.Forms.MessageBox.Show(feed.Name + " TimerElapsedHandler kördes, stop timer");    
+            }               
         }
-
-
-    }
-    
+    }  
 }

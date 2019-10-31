@@ -8,7 +8,5 @@ namespace SharedModels.Interfaces
     {
 public virtual string Name {get; set;}
 
-
-
     }
 }

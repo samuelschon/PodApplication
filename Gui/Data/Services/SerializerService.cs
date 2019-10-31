@@ -13,7 +13,6 @@ namespace Data.Services
     public class SerializerService
     {
         string categoryPath = Environment.CurrentDirectory + "\\categories.json";
-        //string categoryPath = @"C:\Users\Henrik\source\repos\PodApplication\Gui\Logic\categories.json";
      
         public void Serialize(string path, Feed inObject)
         {

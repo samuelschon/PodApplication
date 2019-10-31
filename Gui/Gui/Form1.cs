@@ -8,9 +8,7 @@ using System.ServiceModel.Syndication;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Logic.Controllers;
-
 using Logic.Validation;
 using SharedModels.Models;
 
@@ -38,8 +36,6 @@ namespace Gui
 
         private void starttimers()
         {
-
-
             foreach (Feed oneFeed in allAvailibleFeeds)
             {
                 controller.StartFeedTimer(oneFeed);
@@ -68,10 +64,9 @@ namespace Gui
 
         private void UpdateFeedListByCategory(string categoryName)
         {
-
             List<Feed> allAvailibleFeeds = new List<Feed>();
+            
             allAvailibleFeeds = controller.GetAllFeeds();
-
             allAvailibleFeeds.RemoveAll(x => x.Category != categoryName);
 
             lstAllFeeds.Items.Clear();
@@ -86,20 +81,14 @@ namespace Gui
 
                 lstAllFeeds.Items.Add(oneListRow);
             }
-
-
         }
 
         private void LoadCategories()
         {
-
             List<Category> categories = categoryController.GetCategories();
-
-
-           
+ 
             cboxCategory.Items.Clear();
             lstAllCategories.Items.Clear();
-
 
             foreach (var category in categories)
             {
@@ -108,23 +97,11 @@ namespace Gui
                 lstAllCategories.Items.Add(categoryName);
                 cboxCategory.Items.Add(categoryName);
             }
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             controller.createFeed(txtUrl.Text, cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
-
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-            //cboxFrequency.SelectedIndex = 0;
-            //cboxCategory.SelectedIndex = 0;
-
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -132,25 +109,15 @@ namespace Gui
             string categoryInput = txtNewCategoryName.Text;
 
             if (ValidationService.checkIfSpecialLetters(categoryInput) && ValidationService.checkLength(categoryInput))
-
             {
                 if (!categoryController.DoesCategoryExist(categoryInput))
                 {
                     categoryController.CreateCategory(categoryInput);
                     LoadCategories();
                 }
-
-                else { txtNewCategoryName.Text = "Kategorin finns redan"; } //Ska tas bort
-
+                else 
+                { MessageBox.Show("Kategorin finns redan"); }  //ska tas bort
             }
-        }
-
-
-
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnDeleteFeed_Click(object sender, EventArgs e)
@@ -162,7 +129,6 @@ namespace Gui
                 LoadAllFeeds();
                 UpdateFeedList();
             }
-
         }
 
         private void btnNewFeed_Click(object sender, EventArgs e)
@@ -174,15 +140,6 @@ namespace Gui
                 UpdateFeedList();
                 starttimers();
             }
-
-        }
-
-        private void lstAllFeeds_DoubleClick(object sender, EventArgs e)
-        {
-
-
-
-
         }
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
@@ -193,10 +150,8 @@ namespace Gui
                 string selectedCategoryName = lstAllCategories.SelectedItems[0].Text;
                 categoryController.DeleteCategory(selectedCategoryName);
                 LoadCategories();
-            }
-           
+            }         
         }
-
 
         private void button1_Click_2(object sender, EventArgs e)
         {
@@ -209,7 +164,6 @@ namespace Gui
         {
             var feedName = lstAllFeeds.SelectedItems[0].SubItems[1].Text;
           
-
             Feed feed = controller.GetSpecificFeed(feedName);
 
             txtUrl.Text = feed.Url;
@@ -219,7 +173,6 @@ namespace Gui
             lblCurrentFeed.Text = feed.Name;
 
             LoadEpisodes(feed);
-
         }
 
         private void LoadEpisodes(Feed feed)
@@ -239,10 +192,6 @@ namespace Gui
 
                 lstAllEpisodes.Items.Add(oneListRow);
             }
-
-
-
-
         }
 
         private void btnSaveFeedChanges_Click(object sender, EventArgs e)
@@ -258,12 +207,6 @@ namespace Gui
                 UpdateFeedList();
                 starttimers();
             }
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -283,16 +226,8 @@ namespace Gui
                 LoadCategories();
                 txtEditCategoryNewName.Visible = false;
                 btnSaveCategoryEdit.Visible = false;
-
             }
-
-            else { txtEditCategoryNewName.Text = "Kategorin finns redan"; }
-        }
-
-
-        private void btnResetView_Click(object sender, EventArgs e)
-        {
-            UpdateFeedList();
+            else { MessageBox.Show( "Kategorin finns redan"); }
         }
 
         private void btnResetView_Click_1(object sender, EventArgs e)

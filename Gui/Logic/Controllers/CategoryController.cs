@@ -10,49 +10,44 @@ namespace Logic.Controllers
 {
     public class CategoryController
     {
-
         private SerializerService serializer = new SerializerService();
 
-        public void CreateCategory(string name) {
-
+        public void CreateCategory(string name) 
+        {
             Category category = new Category(name);
-            serializer.SerializeCategory(category);            
-        
+            serializer.SerializeCategory(category);                   
         }
 
-        public void DeleteCategory(string categoryName) {
-
-            List<Category> currentCategories = serializer.DeserializeCategory();
+        public void DeleteCategory(string categoryName) 
+        {
+            List<Category> currentCategories = serializer.DeserializeCategory(); 
+            /*##########Borde brytas ut i en egen metod############### */
 
              currentCategories.RemoveAll(x => x.Name == categoryName);
 
             serializer.DeleteAllCategories();
+            /*##########Borde brytas ut i en egen metod############### */
 
-            foreach  (Category category in currentCategories)
+            foreach (Category category in currentCategories)
             {
                 serializer.SerializeCategory(category);
-            }
-        
+            }       
         }
 
         public void EditCategory(string oldName, string newName)
         {
             DeleteCategory(oldName);
             CreateCategory(newName);
-
         }
 
-        public List<Category> GetCategories() {
-
+        public List<Category> GetCategories() 
+        {
            return serializer.DeserializeCategory();
-        
-        
         }
 
-        public bool DoesCategoryExist(string categoryName) {
-
+        public bool DoesCategoryExist(string categoryName) 
+        {
             bool exists = false;
-
 
             foreach (Category category in GetCategories())
             {
@@ -63,10 +58,7 @@ namespace Logic.Controllers
                 
                 }
             }
-
-            return exists;
-        
-        
+            return exists;            
         }
 
     }
