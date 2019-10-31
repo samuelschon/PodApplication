@@ -18,8 +18,8 @@ namespace Gui
 {
     public partial class txtUpdateFrequency : Form
     {
-        private FeedController controller = new FeedController();
-        private CategoryController categoryController = new CategoryController();
+        private readonly FeedController controller = new FeedController();
+        private readonly CategoryController categoryController = new CategoryController();
         private List<Feed> allAvailibleFeeds;
         public txtUpdateFrequency()
         {
@@ -35,10 +35,11 @@ namespace Gui
             starttimers();
 
         }
-        
-        private void starttimers() {
 
-            
+        private void starttimers()
+        {
+
+
             foreach (Feed oneFeed in allAvailibleFeeds)
             {
                 controller.StartFeedTimer(oneFeed);
@@ -47,16 +48,16 @@ namespace Gui
 
         private void LoadAllFeeds()
         {
-             allAvailibleFeeds = controller.GetAllFeeds();
+            allAvailibleFeeds = controller.GetAllFeeds();
         }
 
         private void UpdateFeedList()
-        {   
+        {
             lstAllFeeds.Items.Clear();
 
             foreach (Feed oneFeed in allAvailibleFeeds)
             {
-                ListViewItem oneListRow = new ListViewItem();
+                var oneListRow = new ListViewItem();
                 oneListRow.Text = oneFeed.Episodes.Count.ToString();
                 oneListRow.SubItems.Add(oneFeed.Name);
                 oneListRow.SubItems.Add(oneFeed.Category);
@@ -65,8 +66,9 @@ namespace Gui
             }
         }
 
-        private void UpdateFeedListByCategory(string categoryName) {
-           
+        private void UpdateFeedListByCategory(string categoryName)
+        {
+
             List<Feed> allAvailibleFeeds = new List<Feed>();
             allAvailibleFeeds = controller.GetAllFeeds();
 
@@ -94,15 +96,16 @@ namespace Gui
             List<Category> categories = categoryController.GetCategories();
 
 
-            boxCategories.Items.Clear();
+           
             cboxCategory.Items.Clear();
+            lstAllCategories.Items.Clear();
 
 
             foreach (var category in categories)
             {
                 string categoryName = category.Name;
 
-                boxCategories.Items.Add(categoryName);
+                lstAllCategories.Items.Add(categoryName);
                 cboxCategory.Items.Add(categoryName);
             }
 
@@ -161,10 +164,10 @@ namespace Gui
                 else { txtNewCategoryName.Text = "Kategorin finns redan"; } //Ska tas bort
 
             }
-        } 
+        }
 
 
-           
+
 
         private void label5_Click(object sender, EventArgs e)
         {
@@ -180,7 +183,7 @@ namespace Gui
                 LoadAllFeeds();
                 UpdateFeedList();
             }
-           
+
         }
 
         private void btnNewFeed_Click(object sender, EventArgs e)
@@ -192,7 +195,7 @@ namespace Gui
                 UpdateFeedList();
                 starttimers();
             }
-      
+
         }
 
         private void lstAllFeeds_DoubleClick(object sender, EventArgs e)
@@ -205,9 +208,14 @@ namespace Gui
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
-            string selectedCategoryName = boxCategories.SelectedItem.ToString();
-            categoryController.DeleteCategory(selectedCategoryName);
-            LoadCategories();
+            //kontroll om den e tom
+            if (ValidationService.validateIfListViewHasSelectedItem(lstAllCategories))
+            {
+                string selectedCategoryName = lstAllCategories.SelectedItems[0].Text;
+                categoryController.DeleteCategory(selectedCategoryName);
+                LoadCategories();
+            }
+           
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -230,12 +238,13 @@ namespace Gui
         private void lstAllFeeds_MouseClick(object sender, MouseEventArgs e)
         {
             var feedName = lstAllFeeds.SelectedItems[0].SubItems[1].Text;
-            Feed feed = new Feed();
-            
-            feed = controller.GetSpecificFeed(feedName);
+          
+
+            Feed feed = controller.GetSpecificFeed(feedName);
 
             txtUrl.Text = feed.Url;
             cboxFrequency.SelectedItem = feed.Frequency;
+            cboxCategory.SelectedItem = null;
             cboxCategory.SelectedItem = feed.Category;
             lblCurrentFeed.Text = feed.Name;
 
@@ -250,25 +259,25 @@ namespace Gui
             foreach (Episode oneEpisode in feed.Episodes)
             {
                 counter++;
-                
+
                 ListViewItem oneListRow = new ListViewItem();
 
                 oneListRow.Text = counter.ToString();
                 oneListRow.SubItems.Add(oneEpisode.Name);
-                oneListRow.SubItems.Add(oneEpisode.Summary);
+                oneListRow.SubItems.Add(oneEpisode.Summary;
                 oneListRow.SubItems.Add(oneEpisode.PublishedDate);
 
                 lstAllEpisodes.Items.Add(oneListRow);
             }
 
-           
+
 
 
         }
 
         private void btnSaveFeedChanges_Click(object sender, EventArgs e)
         {
-            if (lblCurrentFeed.Text !=  "")
+            if (lblCurrentFeed.Text != "")
             {
                 var Url = txtUrl.Text;
                 var Frequency = cboxFrequency.SelectedItem.ToString();
@@ -279,7 +288,6 @@ namespace Gui
                 UpdateFeedList();
                 starttimers();
             }
-            
 
         }
 
@@ -296,45 +304,40 @@ namespace Gui
 
         private void btnSaveCategoryEdit_Click(object sender, EventArgs e)
         {
-            string selectedCategoryName = boxCategories.SelectedItem.ToString();
+            string selectedCategoryName = lstAllCategories.SelectedItems[0].Text;
             string newCategoryName = txtEditCategoryNewName.Text;
 
             if (!categoryController.DoesCategoryExist(newCategoryName))
             {
-
                 categoryController.EditCategory(selectedCategoryName, newCategoryName);
                 LoadCategories();
                 txtEditCategoryNewName.Visible = false;
-                    btnSaveCategoryEdit.Visible = false;
-        
-
+                btnSaveCategoryEdit.Visible = false;
 
             }
 
             else { txtEditCategoryNewName.Text = "Kategorin finns redan"; }
         }
 
-        private void btnSortFeedsByCategory_Click(object sender, EventArgs e)
-        {
-            string selectedCategoryName = boxCategories.SelectedItem.ToString();
-            UpdateFeedListByCategory(selectedCategoryName);
-
-        }
 
         private void btnResetView_Click(object sender, EventArgs e)
         {
             UpdateFeedList();
         }
 
-        private void btnSortFeedsByCategory_Click_1(object sender, EventArgs e)
-        {
-            string selectedCategoryName = boxCategories.SelectedItem.ToString();
-            UpdateFeedListByCategory(selectedCategoryName);
-        }
-
         private void btnResetView_Click_1(object sender, EventArgs e)
         {
             UpdateFeedList();
         }
+
+        private void lstAllCategories_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (ValidationService.validateIfListViewHasSelectedItem(lstAllCategories))
+            {
+                string selectedCategoryName = lstAllCategories.SelectedItems[0].Text;
+                UpdateFeedListByCategory(selectedCategoryName);
+            }
+        }
+
     }
 }

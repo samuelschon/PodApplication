@@ -16,7 +16,7 @@ namespace Logic.Controllers
 {
     public  class FeedController
     {
-        private SerializerService serializer = new SerializerService();
+        private readonly SerializerService serializer = new SerializerService();
 
         public void createFeed(string url, string inFrequency, string inCategory)
         {
@@ -67,12 +67,12 @@ namespace Logic.Controllers
         public void UpdateSpecifikFeed(string url, string inFrequency, string inCategory, string nameOfFeed )
         {
             List<Feed> currentFeed = serializer.Deserialize(Environment.CurrentDirectory + "\\test.json");
-            Feed feed = new Feed();
+          
             foreach (Feed aFeed in currentFeed)
             {
                 if (aFeed.Name == nameOfFeed)
                 {
-                    feed = aFeed;
+                    
                     DeleteFeed(nameOfFeed);
                     break;
                 }

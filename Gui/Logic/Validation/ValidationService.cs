@@ -24,10 +24,20 @@ namespace Logic.Validation
                 
             }
 
-          
+                return selected;
+        }
+        public static Boolean validateIfListViewHasSelectedItem(ListView list)
+        {
+            Boolean selected = true;
+            if ((list.SelectedItems.Count) <= 0)
+            {
+                selected = false;
+                MessageBox.Show("Du måste välja ett värde i listan.");
+
+            }
             return selected;
         }
-        public static Boolean checkIfFeedExist(List<Feed> allFeeds, string url)
+            public static Boolean checkIfFeedExist(List<Feed> allFeeds, string url)
         {
             Boolean exist = false;
             

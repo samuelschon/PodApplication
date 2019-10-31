@@ -1,14 +1,16 @@
-﻿using System;
+﻿using SharedModels.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Timers;
 
 namespace SharedModels.Models
 {
-    public class Feed
+    public class Feed : IBaseClass
     {
         public int NumberOfEpisodes { get; set; }
-        public string Name { get; set; }
+       
+        public override string Name { get; set; }
         public string Frequency { get; set; }
         public string Category { get; set; }
         public string Url { get; set; }
