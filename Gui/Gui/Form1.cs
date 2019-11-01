@@ -56,8 +56,9 @@ namespace Gui
                 var oneListRow = new ListViewItem();
                 oneListRow.Text = oneFeed.Episodes.Count.ToString();
                 oneListRow.SubItems.Add(oneFeed.Name);
-                oneListRow.SubItems.Add(oneFeed.Category);
                 oneListRow.SubItems.Add(oneFeed.Frequency);
+                oneListRow.SubItems.Add(oneFeed.Category);
+                
                 lstAllFeeds.Items.Add(oneListRow);
             }
         }
@@ -131,11 +132,20 @@ namespace Gui
             }
         }
 
-        private void btnNewFeed_Click(object sender, EventArgs e)
+        private async void btnNewFeed_Click(object sender, EventArgs e)
         {
+
+            
+
             if (ValidationService.validateComboBox(cboxFrequency) && ValidationService.validateComboBox(cboxCategory))
             {
-                controller.createFeed(txtUrl.Text, cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
+
+                string frequency = cboxFrequency.SelectedItem.ToString();
+                string categoryName = cboxCategory.SelectedItem.ToString();
+
+                Task taskA = Task.Run(() => controller.createFeed(txtUrl.Text, frequency, categoryName));
+                await taskA;
+               
                 LoadAllFeeds();
                 UpdateFeedList();
                 starttimers();
@@ -197,7 +207,14 @@ namespace Gui
             }
         }
 
-        private void btnSaveFeedChanges_Click(object sender, EventArgs e)
+        private void LoadEpisodeSummary() {
+
+            txtboxEpisodeSummary.Text = "Hej";
+        
+        
+        }
+
+        private async void btnSaveFeedChanges_Click(object sender, EventArgs e)
         {
             if (lblCurrentFeed.Text != "")
             {
@@ -205,6 +222,12 @@ namespace Gui
                 var Frequency = cboxFrequency.SelectedItem.ToString();
                 var Category = cboxCategory.SelectedItem.ToString();
                 var nameOfFeed = lblCurrentFeed.Text;
+
+           
+
+                Task taskA = Task.Run(() => controller.UpdateSpecifikFeed(Url, Frequency, Category, nameOfFeed));
+                await taskA;
+
                 controller.UpdateSpecifikFeed(Url, Frequency, Category, nameOfFeed);
                 LoadAllFeeds();
                 UpdateFeedList();
@@ -236,6 +259,7 @@ namespace Gui
         private void btnResetView_Click_1(object sender, EventArgs e)
         {
             UpdateFeedList();
+            
         }
 
         private void lstAllCategories_MouseClick(object sender, MouseEventArgs e)
@@ -247,5 +271,16 @@ namespace Gui
             }
         }
 
+        private void lstAllEpisodes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+      
+
+        private void lstAllEpisodes_MouseClick(object sender, MouseEventArgs e)
+        {
+            LoadEpisodeSummary();
+        }
     }
 }
