@@ -282,5 +282,25 @@ namespace Gui
         {
             LoadEpisodeSummary();
         }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUpdateFrequency_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNewCategoryName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lstAllFeeds_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

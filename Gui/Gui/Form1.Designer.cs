@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.cboxCategory = new System.Windows.Forms.ComboBox();
             this.cboxFrequency = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.lstAllEpisodes = new System.Windows.Forms.ListView();
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -69,20 +67,11 @@
             // label4
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(807, 18);
-            this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label4.Location = new System.Drawing.Point(538, 12);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(4, 1202);
+            this.label4.Size = new System.Drawing.Size(3, 781);
             this.label4.TabIndex = 39;
-            // 
-            // label5
-            // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(824, 808);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(469, 15);
-            this.label5.TabIndex = 37;
             // 
             // cboxCategory
             // 
@@ -91,10 +80,10 @@
             this.cboxCategory.Items.AddRange(new object[] {
             "Historia",
             "Humor"});
-            this.cboxCategory.Location = new System.Drawing.Point(645, 505);
-            this.cboxCategory.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.cboxCategory.Location = new System.Drawing.Point(430, 286);
+            this.cboxCategory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxCategory.Name = "cboxCategory";
-            this.cboxCategory.Size = new System.Drawing.Size(116, 28);
+            this.cboxCategory.Size = new System.Drawing.Size(79, 21);
             this.cboxCategory.TabIndex = 36;
             // 
             // cboxFrequency
@@ -107,20 +96,11 @@
             "Var 10:e minut",
             "Var 15:e minut",
             "Var 20:e minut"});
-            this.cboxFrequency.Location = new System.Drawing.Point(459, 505);
-            this.cboxFrequency.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.cboxFrequency.Location = new System.Drawing.Point(306, 286);
+            this.cboxFrequency.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboxFrequency.Name = "cboxFrequency";
-            this.cboxFrequency.Size = new System.Drawing.Size(172, 28);
+            this.cboxFrequency.Size = new System.Drawing.Size(116, 21);
             this.cboxFrequency.TabIndex = 35;
-            // 
-            // label6
-            // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label6.Location = new System.Drawing.Point(816, 465);
-            this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(469, 15);
-            this.label6.TabIndex = 38;
             // 
             // lstAllEpisodes
             // 
@@ -131,10 +111,10 @@
             this.columnHeader9});
             this.lstAllEpisodes.FullRowSelect = true;
             this.lstAllEpisodes.HideSelection = false;
-            this.lstAllEpisodes.Location = new System.Drawing.Point(63, 711);
-            this.lstAllEpisodes.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lstAllEpisodes.Location = new System.Drawing.Point(42, 378);
+            this.lstAllEpisodes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lstAllEpisodes.Name = "lstAllEpisodes";
-            this.lstAllEpisodes.Size = new System.Drawing.Size(514, 206);
+            this.lstAllEpisodes.Size = new System.Drawing.Size(256, 234);
             this.lstAllEpisodes.TabIndex = 33;
             this.lstAllEpisodes.UseCompatibleStateImageBehavior = false;
             this.lstAllEpisodes.View = System.Windows.Forms.View.Details;
@@ -159,10 +139,10 @@
             // 
             // btnRemoveCategory
             // 
-            this.btnRemoveCategory.Location = new System.Drawing.Point(1008, 582);
-            this.btnRemoveCategory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnRemoveCategory.Location = new System.Drawing.Point(566, 378);
+            this.btnRemoveCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemoveCategory.Name = "btnRemoveCategory";
-            this.btnRemoveCategory.Size = new System.Drawing.Size(147, 52);
+            this.btnRemoveCategory.Size = new System.Drawing.Size(98, 34);
             this.btnRemoveCategory.TabIndex = 32;
             this.btnRemoveCategory.Text = "Ta bort..";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
@@ -170,10 +150,10 @@
             // 
             // btnNewCategory
             // 
-            this.btnNewCategory.Location = new System.Drawing.Point(849, 582);
-            this.btnNewCategory.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnNewCategory.Location = new System.Drawing.Point(566, 335);
+            this.btnNewCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNewCategory.Name = "btnNewCategory";
-            this.btnNewCategory.Size = new System.Drawing.Size(147, 52);
+            this.btnNewCategory.Size = new System.Drawing.Size(98, 34);
             this.btnNewCategory.TabIndex = 30;
             this.btnNewCategory.Text = "Ny...";
             this.btnNewCategory.UseVisualStyleBackColor = true;
@@ -181,10 +161,10 @@
             // 
             // btnDeleteFeed
             // 
-            this.btnDeleteFeed.Location = new System.Drawing.Point(378, 582);
-            this.btnDeleteFeed.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnDeleteFeed.Location = new System.Drawing.Point(254, 321);
+            this.btnDeleteFeed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDeleteFeed.Name = "btnDeleteFeed";
-            this.btnDeleteFeed.Size = new System.Drawing.Size(147, 52);
+            this.btnDeleteFeed.Size = new System.Drawing.Size(98, 34);
             this.btnDeleteFeed.TabIndex = 29;
             this.btnDeleteFeed.Text = "Ta bort...";
             this.btnDeleteFeed.UseVisualStyleBackColor = true;
@@ -218,39 +198,41 @@
             this.colCategory});
             this.lstAllFeeds.FullRowSelect = true;
             this.lstAllFeeds.HideSelection = false;
-            this.lstAllFeeds.Location = new System.Drawing.Point(30, 18);
-            this.lstAllFeeds.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.lstAllFeeds.Location = new System.Drawing.Point(20, 12);
+            this.lstAllFeeds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.lstAllFeeds.Name = "lstAllFeeds";
-            this.lstAllFeeds.Size = new System.Drawing.Size(583, 442);
+            this.lstAllFeeds.Size = new System.Drawing.Size(374, 234);
             this.lstAllFeeds.TabIndex = 27;
             this.lstAllFeeds.UseCompatibleStateImageBehavior = false;
             this.lstAllFeeds.View = System.Windows.Forms.View.Details;
+            this.lstAllFeeds.SelectedIndexChanged += new System.EventHandler(this.lstAllFeeds_SelectedIndexChanged);
             this.lstAllFeeds.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstAllFeeds_MouseClick);
             // 
             // txtNewCategoryName
             // 
-            this.txtNewCategoryName.Location = new System.Drawing.Point(824, 506);
-            this.txtNewCategoryName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtNewCategoryName.Location = new System.Drawing.Point(549, 307);
+            this.txtNewCategoryName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNewCategoryName.Name = "txtNewCategoryName";
-            this.txtNewCategoryName.Size = new System.Drawing.Size(358, 26);
+            this.txtNewCategoryName.Size = new System.Drawing.Size(240, 20);
             this.txtNewCategoryName.TabIndex = 26;
+            this.txtNewCategoryName.TextChanged += new System.EventHandler(this.txtNewCategoryName_TextChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(26, 465);
-            this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label3.Location = new System.Drawing.Point(17, 260);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 20);
+            this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 25;
             this.label3.Text = "URL";
             // 
             // btnNewFeed
             // 
-            this.btnNewFeed.Location = new System.Drawing.Point(63, 582);
-            this.btnNewFeed.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnNewFeed.Location = new System.Drawing.Point(42, 321);
+            this.btnNewFeed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNewFeed.Name = "btnNewFeed";
-            this.btnNewFeed.Size = new System.Drawing.Size(147, 52);
+            this.btnNewFeed.Size = new System.Drawing.Size(98, 34);
             this.btnNewFeed.TabIndex = 24;
             this.btnNewFeed.Text = "Ny...";
             this.btnNewFeed.UseVisualStyleBackColor = true;
@@ -258,55 +240,57 @@
             // 
             // txtUrl
             // 
-            this.txtUrl.Location = new System.Drawing.Point(30, 506);
-            this.txtUrl.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtUrl.Location = new System.Drawing.Point(20, 287);
+            this.txtUrl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(415, 26);
+            this.txtUrl.Size = new System.Drawing.Size(278, 20);
             this.txtUrl.TabIndex = 23;
             this.txtUrl.Text = "https://api.sr.se/api/rss/program/407";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(813, 489);
-            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label2.Location = new System.Drawing.Point(542, 318);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 20);
+            this.label2.Size = new System.Drawing.Size(0, 13);
             this.label2.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(393, 245);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label1.Location = new System.Drawing.Point(262, 159);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 20);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 21;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(645, 466);
+            this.label7.Location = new System.Drawing.Point(430, 261);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(72, 20);
+            this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 40;
             this.label7.Text = "Kategori:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(444, 466);
+            this.label8.Location = new System.Drawing.Point(296, 261);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(169, 20);
+            this.label8.Size = new System.Drawing.Size(114, 13);
             this.label8.TabIndex = 41;
             this.label8.Text = "Uppdateringsfrekvens:";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(63, 648);
-            this.button1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.button1.Location = new System.Drawing.Point(423, 93);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 52);
+            this.button1.Size = new System.Drawing.Size(98, 34);
             this.button1.TabIndex = 43;
             this.button1.Text = "Ny2";
             this.button1.UseVisualStyleBackColor = true;
@@ -314,10 +298,10 @@
             // 
             // btnSaveFeedChanges
             // 
-            this.btnSaveFeedChanges.Location = new System.Drawing.Point(222, 582);
-            this.btnSaveFeedChanges.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSaveFeedChanges.Location = new System.Drawing.Point(148, 321);
+            this.btnSaveFeedChanges.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveFeedChanges.Name = "btnSaveFeedChanges";
-            this.btnSaveFeedChanges.Size = new System.Drawing.Size(147, 52);
+            this.btnSaveFeedChanges.Size = new System.Drawing.Size(98, 34);
             this.btnSaveFeedChanges.TabIndex = 44;
             this.btnSaveFeedChanges.Text = "Spara";
             this.btnSaveFeedChanges.UseVisualStyleBackColor = true;
@@ -326,17 +310,18 @@
             // lblCurrentFeed
             // 
             this.lblCurrentFeed.AutoSize = true;
-            this.lblCurrentFeed.Location = new System.Drawing.Point(78, 541);
+            this.lblCurrentFeed.Location = new System.Drawing.Point(52, 310);
+            this.lblCurrentFeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCurrentFeed.Name = "lblCurrentFeed";
-            this.lblCurrentFeed.Size = new System.Drawing.Size(0, 20);
+            this.lblCurrentFeed.Size = new System.Drawing.Size(0, 13);
             this.lblCurrentFeed.TabIndex = 45;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(1167, 582);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnEdit.Location = new System.Drawing.Point(672, 378);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(147, 52);
+            this.btnEdit.Size = new System.Drawing.Size(98, 34);
             this.btnEdit.TabIndex = 46;
             this.btnEdit.Text = "Ändra";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -344,10 +329,10 @@
             // 
             // btnSaveCategoryEdit
             // 
-            this.btnSaveCategoryEdit.Location = new System.Drawing.Point(1196, 699);
-            this.btnSaveCategoryEdit.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSaveCategoryEdit.Location = new System.Drawing.Point(566, 448);
+            this.btnSaveCategoryEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSaveCategoryEdit.Name = "btnSaveCategoryEdit";
-            this.btnSaveCategoryEdit.Size = new System.Drawing.Size(147, 52);
+            this.btnSaveCategoryEdit.Size = new System.Drawing.Size(98, 34);
             this.btnSaveCategoryEdit.TabIndex = 48;
             this.btnSaveCategoryEdit.Text = "Spara";
             this.btnSaveCategoryEdit.UseVisualStyleBackColor = true;
@@ -355,18 +340,18 @@
             // 
             // txtEditCategoryNewName
             // 
-            this.txtEditCategoryNewName.Location = new System.Drawing.Point(824, 711);
-            this.txtEditCategoryNewName.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txtEditCategoryNewName.Location = new System.Drawing.Point(545, 420);
+            this.txtEditCategoryNewName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEditCategoryNewName.Name = "txtEditCategoryNewName";
-            this.txtEditCategoryNewName.Size = new System.Drawing.Size(358, 26);
+            this.txtEditCategoryNewName.Size = new System.Drawing.Size(240, 20);
             this.txtEditCategoryNewName.TabIndex = 49;
             // 
             // btnResetView
             // 
-            this.btnResetView.Location = new System.Drawing.Point(634, 52);
-            this.btnResetView.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnResetView.Location = new System.Drawing.Point(423, 34);
+            this.btnResetView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnResetView.Name = "btnResetView";
-            this.btnResetView.Size = new System.Drawing.Size(147, 52);
+            this.btnResetView.Size = new System.Drawing.Size(98, 34);
             this.btnResetView.TabIndex = 51;
             this.btnResetView.Text = "Återställ vy";
             this.btnResetView.UseVisualStyleBackColor = true;
@@ -377,10 +362,10 @@
             this.lstAllCategories.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.lstAllCategories.HideSelection = false;
-            this.lstAllCategories.Location = new System.Drawing.Point(824, 18);
-            this.lstAllCategories.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.lstAllCategories.Location = new System.Drawing.Point(549, 12);
+            this.lstAllCategories.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.lstAllCategories.Name = "lstAllCategories";
-            this.lstAllCategories.Size = new System.Drawing.Size(397, 422);
+            this.lstAllCategories.Size = new System.Drawing.Size(266, 276);
             this.lstAllCategories.TabIndex = 52;
             this.lstAllCategories.UseCompatibleStateImageBehavior = false;
             this.lstAllCategories.View = System.Windows.Forms.View.Details;
@@ -392,17 +377,18 @@
             // 
             // txtboxEpisodeSummary
             // 
-            this.txtboxEpisodeSummary.Location = new System.Drawing.Point(824, 839);
+            this.txtboxEpisodeSummary.Location = new System.Drawing.Point(319, 378);
+            this.txtboxEpisodeSummary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtboxEpisodeSummary.Multiline = true;
             this.txtboxEpisodeSummary.Name = "txtboxEpisodeSummary";
-            this.txtboxEpisodeSummary.Size = new System.Drawing.Size(490, 184);
+            this.txtboxEpisodeSummary.Size = new System.Drawing.Size(190, 176);
             this.txtboxEpisodeSummary.TabIndex = 53;
             // 
             // txtUpdateFrequency
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1392, 1050);
+            this.ClientSize = new System.Drawing.Size(840, 668);
             this.Controls.Add(this.txtboxEpisodeSummary);
             this.Controls.Add(this.lstAllCategories);
             this.Controls.Add(this.btnResetView);
@@ -415,10 +401,8 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.cboxCategory);
             this.Controls.Add(this.cboxFrequency);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.lstAllEpisodes);
             this.Controls.Add(this.btnRemoveCategory);
             this.Controls.Add(this.btnNewCategory);
@@ -430,9 +414,10 @@
             this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "txtUpdateFrequency";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.txtUpdateFrequency_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,10 +426,8 @@
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboxCategory;
         private System.Windows.Forms.ComboBox cboxFrequency;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ListView lstAllEpisodes;
         private System.Windows.Forms.Button btnRemoveCategory;
         private System.Windows.Forms.Button btnNewCategory;
