@@ -200,8 +200,8 @@ namespace Gui
 
                 oneListRow.Text = counter.ToString();
                 oneListRow.SubItems.Add(oneEpisode.Name);
-                oneListRow.SubItems.Add(oneEpisode.Summary);
-                oneListRow.SubItems.Add(oneEpisode.PublishedDate);
+                //oneListRow.SubItems.Add(oneEpisode.Summary);
+                //oneListRow.SubItems.Add(oneEpisode.PublishedDate);
 
                 lstAllEpisodes.Items.Add(oneListRow);
             }
@@ -209,9 +209,18 @@ namespace Gui
 
         private void LoadEpisodeSummary() {
 
-            txtboxEpisodeSummary.Text = "Hej";
-        
-        
+            var feedName = lstAllFeeds.SelectedItems[0].SubItems[1].Text;
+          
+            Feed feed = controller.GetSpecificFeed(feedName);
+            string episodeTitle = lstAllEpisodes.SelectedItems[0].SubItems[1].Text;
+
+            Episode episode = feed.Episodes.Single(x => x.Name == episodeTitle);
+
+            lblEpisodeSummary.Text = episode.Summary;
+            lblEpisodeTitle.Text = episode.Name;
+            lblEpisodePublished.Text = episode.PublishedDate;
+
+
         }
 
         private async void btnSaveFeedChanges_Click(object sender, EventArgs e)
@@ -299,6 +308,16 @@ namespace Gui
         }
 
         private void lstAllFeeds_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click_1(object sender, EventArgs e)
         {
 
         }
