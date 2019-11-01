@@ -145,9 +145,12 @@ namespace Gui
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
             //kontroll om den e tom
-            if (ValidationService.validateIfListViewHasSelectedItem(lstAllCategories))
+
+            string selectedCategoryName = lstAllCategories.SelectedItems[0].Text;
+
+            if (ValidationService.validateIfListViewHasSelectedItem(lstAllCategories) && !ValidationService.doFeedsWithThisCategoryExist(controller.GetAllFeeds(), selectedCategoryName))
             {
-                string selectedCategoryName = lstAllCategories.SelectedItems[0].Text;
+               
                 categoryController.DeleteCategory(selectedCategoryName);
                 LoadCategories();
             }         

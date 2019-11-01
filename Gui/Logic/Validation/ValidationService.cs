@@ -83,6 +83,24 @@ namespace Logic.Validation
             }
             return lengthConfirmation;
         }
+
+        public static bool doFeedsWithThisCategoryExist(List<Feed> feedList, string categoryName) {
+
+            bool exists = false;
+
+            exists = feedList.Any(x => x.Category == categoryName);
+
+            if (exists == true) {
+
+                MessageBox.Show("Det finns podcasts med denna kategori. Kategorin kan därför inte raderas.");
+
+            }
+
+            return exists;
+
+
+        
+        }
         
 
         
