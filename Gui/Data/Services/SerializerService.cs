@@ -12,7 +12,7 @@ namespace Data.Services
 {
     public class SerializerService
     {
-        string categoryPath = Environment.CurrentDirectory + "\\categories.json";
+        public string categoryPath = Environment.CurrentDirectory + "\\categories.json";
      
         public void Serialize(string path, Feed inObject)
         {

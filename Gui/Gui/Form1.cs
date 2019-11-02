@@ -77,8 +77,9 @@ namespace Gui
                 ListViewItem oneListRow = new ListViewItem();
                 oneListRow.Text = oneFeed.Episodes.Count.ToString();
                 oneListRow.SubItems.Add(oneFeed.Name);
-                oneListRow.SubItems.Add(oneFeed.Category);
+                
                 oneListRow.SubItems.Add(oneFeed.Frequency);
+                oneListRow.SubItems.Add(oneFeed.Category);
 
                 lstAllFeeds.Items.Add(oneListRow);
             }
@@ -259,6 +260,8 @@ namespace Gui
             {
                 categoryController.EditCategory(selectedCategoryName, newCategoryName);
                 LoadCategories();
+                LoadAllFeeds();
+                UpdateFeedList();
                 txtEditCategoryNewName.Visible = false;
                 btnSaveCategoryEdit.Visible = false;
             }
@@ -318,6 +321,11 @@ namespace Gui
         }
 
         private void label5_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUpdateFrequency_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }

@@ -38,6 +38,22 @@ namespace Logic.Controllers
         {
             DeleteCategory(oldName);
             CreateCategory(newName);
+
+            List<Feed> feedList = serializer.Deserialize(Environment.CurrentDirectory + "\\test.json");
+
+            foreach (Feed feed in feedList)
+            {
+                if (feed.Category == oldName) {
+
+                    feed.Category = newName;
+                
+                }
+            }
+
+            serializer.SerializeList(Environment.CurrentDirectory + "\\test.json", feedList);
+            
+
+            
         }
 
         public List<Category> GetCategories() 
