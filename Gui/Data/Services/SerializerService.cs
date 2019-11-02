@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SharedModels.Models;
-using Newtonsoft.Json.Linq;
 
 namespace Data.Services
 {
@@ -127,18 +123,18 @@ namespace Data.Services
 
         public List<Feed> Deserialize()
         {
-            List<Feed> feeez = new List<Feed>();
+            List<Feed> feeds = new List<Feed>();
             if (File.Exists(feedPath))
             {
                 //Läser Json - Text
                 var json = System.IO.File.ReadAllText(feedPath);
 
                 //Lägger json i en lista.
-               feeez = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Feed>>(json);
+               feeds = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Feed>>(json);
           
             }
 
-            return feeez;
+            return feeds;
         }
 
         public List<Category> DeserializeCategory()

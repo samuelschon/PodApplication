@@ -101,28 +101,6 @@ namespace Logic.Controllers
             }           
         }
 
-        /*##########Borde brytas ut i en en ny klass episodecontroller############### */
-        public static List<Episode> GetEpisodes(string url)
-        {     
-            List<Episode> allEpisodes = new List<Episode>();
-            SyndicationFeed feed = RssReader.ReadRss(url);
-
-            if (ValidationService.checkIfRssReturnAFeed(feed))
-            {
-                foreach (SyndicationItem oneEpisode in feed.Items.ToList())
-                {
-                    Episode episode = new Episode(oneEpisode.Title.Text, oneEpisode.Summary.Text, oneEpisode.PublishDate.DateTime.ToString());
-
-                    allEpisodes.Add(episode);
-                }             
-            }
-            return allEpisodes;
-        }
-          
-
-            //Ska brytas ut till episodecontroller.
-
-
         public void StartFeedTimer(Feed feed)
         {
             TimerService.StopTimer(feed);

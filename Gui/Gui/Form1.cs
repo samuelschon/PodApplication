@@ -149,7 +149,7 @@ namespace Gui
 
                 Task createFeedTask = Task.Run(() => controller.createFeed(txtUrl.Text, frequency, categoryName));
                 await createFeedTask;
-               
+                   
                 LoadAllFeeds();
                 UpdateFeedList();
                 starttimers();
@@ -158,7 +158,7 @@ namespace Gui
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
-            //kontroll om den e tom
+            
 
             string selectedCategoryName = lstAllCategories.SelectedItems[0].Text;
 
@@ -168,13 +168,6 @@ namespace Gui
                 categoryController.DeleteCategory(selectedCategoryName);
                 LoadCategories();
             }         
-        }
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            controller.createFeed("https://api.sr.se/api/rss/program/2447", cboxFrequency.SelectedItem.ToString(), cboxCategory.SelectedItem.ToString());
-            LoadAllFeeds();
-            UpdateFeedList();
         }
 
         private void lstAllFeeds_MouseClick(object sender, MouseEventArgs e)
@@ -241,7 +234,8 @@ namespace Gui
                 Task updateFeedTask = Task.Run(() => controller.UpdateSpecifikFeed(Url, Frequency, Category, nameOfFeed));
                 await updateFeedTask;
 
-                controller.UpdateSpecifikFeed(Url, Frequency, Category, nameOfFeed);
+                //Metoderna nedan ska inte köras om inte createfeed fungerar
+
                 LoadAllFeeds();
                 UpdateFeedList();
                 starttimers();
