@@ -36,19 +36,18 @@ namespace Logic.Timers
         public static void TimerElapsedHandler(object sender, ElapsedEventArgs e, Feed feed)
         {
             FeedController controller = new FeedController();
-            string aa = feed.Name;
+            
 
             if (controller.GetAllFeeds().Where(c=>c.Name == feed.Name).Count() > 0)
             {
                 controller.checkIfThereAreNewEpisodes(feed);
                 
-                System.Windows.Forms.MessageBox.Show(feed.Name + " TimerElapsedHandler kördes, start timer");
             }
             else
             {
                 StopTimer(feed);
 
-                System.Windows.Forms.MessageBox.Show(feed.Name + " TimerElapsedHandler kördes, stop timer");    
+              
             }               
         }
     }  

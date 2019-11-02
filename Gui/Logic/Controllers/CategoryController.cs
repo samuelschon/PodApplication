@@ -39,7 +39,7 @@ namespace Logic.Controllers
             DeleteCategory(oldName);
             CreateCategory(newName);
 
-            List<Feed> feedList = serializer.Deserialize(Environment.CurrentDirectory + "\\test.json");
+            List<Feed> feedList = serializer.Deserialize();
 
             foreach (Feed feed in feedList)
             {
@@ -50,7 +50,7 @@ namespace Logic.Controllers
                 }
             }
 
-            serializer.SerializeList(Environment.CurrentDirectory + "\\test.json", feedList);
+            serializer.SerializeList(feedList);
             
 
             
@@ -59,6 +59,12 @@ namespace Logic.Controllers
         public List<Category> GetCategories() 
         {
            return serializer.DeserializeCategory();
+        }
+
+        public List<Feed> GetFeeds() {
+
+            return serializer.Deserialize();
+        
         }
 
         public bool DoesCategoryExist(string categoryName) 

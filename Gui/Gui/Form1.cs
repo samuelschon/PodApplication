@@ -124,12 +124,15 @@ namespace Gui
 
         private void btnDeleteFeed_Click(object sender, EventArgs e)
         {
-            if (lstAllFeeds.SelectedItems.Count > 0)
+            if (ValidationService.isAFeedSelected(lstAllFeeds))
             {
                 var selectedFeed = lstAllFeeds.SelectedItems[0].SubItems[1].Text;
                 controller.DeleteFeed(selectedFeed);
                 LoadAllFeeds();
                 UpdateFeedList();
+                lstAllEpisodes.Items.Clear();
+
+
             }
         }
 
@@ -144,8 +147,8 @@ namespace Gui
                 string frequency = cboxFrequency.SelectedItem.ToString();
                 string categoryName = cboxCategory.SelectedItem.ToString();
 
-                Task taskA = Task.Run(() => controller.createFeed(txtUrl.Text, frequency, categoryName));
-                await taskA;
+                Task createFeedTask = Task.Run(() => controller.createFeed(txtUrl.Text, frequency, categoryName));
+                await createFeedTask;
                
                 LoadAllFeeds();
                 UpdateFeedList();
@@ -235,8 +238,8 @@ namespace Gui
 
            
 
-                Task taskA = Task.Run(() => controller.UpdateSpecifikFeed(Url, Frequency, Category, nameOfFeed));
-                await taskA;
+                Task updateFeedTask = Task.Run(() => controller.UpdateSpecifikFeed(Url, Frequency, Category, nameOfFeed));
+                await updateFeedTask;
 
                 controller.UpdateSpecifikFeed(Url, Frequency, Category, nameOfFeed);
                 LoadAllFeeds();
@@ -253,19 +256,23 @@ namespace Gui
 
         private void btnSaveCategoryEdit_Click(object sender, EventArgs e)
         {
-            string selectedCategoryName = lstAllCategories.SelectedItems[0].Text;
-            string newCategoryName = txtEditCategoryNewName.Text;
-
-            if (!categoryController.DoesCategoryExist(newCategoryName))
+            if (ValidationService.validateIfListViewHasSelectedItem(lstAllCategories))
             {
-                categoryController.EditCategory(selectedCategoryName, newCategoryName);
-                LoadCategories();
-                LoadAllFeeds();
-                UpdateFeedList();
-                txtEditCategoryNewName.Visible = false;
-                btnSaveCategoryEdit.Visible = false;
+
+                string selectedCategoryName = lstAllCategories.SelectedItems[0].Text;
+                string newCategoryName = txtEditCategoryNewName.Text;
+
+                if (!categoryController.DoesCategoryExist(newCategoryName))
+                {
+                    categoryController.EditCategory(selectedCategoryName, newCategoryName);
+                    LoadCategories();
+                    LoadAllFeeds();
+                    UpdateFeedList();
+                    txtEditCategoryNewName.Visible = false;
+                    btnSaveCategoryEdit.Visible = false;
+                }
+                else { MessageBox.Show("Kategorin finns redan"); }
             }
-            else { MessageBox.Show( "Kategorin finns redan"); }
         }
 
         private void btnResetView_Click_1(object sender, EventArgs e)
@@ -288,11 +295,15 @@ namespace Gui
 
         }
 
-      
+
 
         private void lstAllEpisodes_MouseClick(object sender, MouseEventArgs e)
         {
-            LoadEpisodeSummary();
+            if (ValidationService.isAFeedSelected(lstAllFeeds))
+            {
+
+                LoadEpisodeSummary();
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -312,7 +323,7 @@ namespace Gui
 
         private void lstAllFeeds_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+      
         }
 
         private void label5_Click(object sender, EventArgs e)

@@ -28,13 +28,13 @@ namespace Logic.Controllers
 
             
             var name = syndicationFeed.Title.Text;
-            var numberOfEpisodes = GetEpisodes(url).Count;
+            var numberOfEpisodes = EpisodeController.GetEpisodes(url).Count;
           
-            Feed feed = new Feed(numberOfEpisodes, name, inFrequency, inCategory, GetEpisodes(url), url);
+            Feed feed = new Feed(numberOfEpisodes, name, inFrequency, inCategory, EpisodeController.GetEpisodes(url), url);
            
             if (!ValidationService.checkIfFeedExist(GetAllFeeds(), url))
             {
-                AddFeed(feed, Environment.CurrentDirectory + "\\test.json");
+                AddFeed(feed);
             }
             else
             {
@@ -48,13 +48,13 @@ namespace Logic.Controllers
 
         public List<Feed> GetAllFeeds()
         {
-            return serializer.Deserialize(Environment.CurrentDirectory + "\\test.json");
+            return serializer.Deserialize();
         }
 
         public Feed GetSpecificFeed(string inFeedName) 
         {
-           List<Feed> allFeeds = serializer.Deserialize(Environment.CurrentDirectory + "\\test.json");
-            Feed returnFeed = new Feed();
+           List<Feed> allFeeds = serializer.Deserialize();
+            Feed returnFeed = null;
             foreach (Feed aFeed in allFeeds)
             {
                 if (aFeed.Name == inFeedName)
@@ -66,7 +66,7 @@ namespace Logic.Controllers
         }
         public void UpdateSpecifikFeed(string url, string inFrequency, string inCategory, string nameOfFeed )
         {
-            List<Feed> currentFeed = serializer.Deserialize(Environment.CurrentDirectory + "\\test.json");
+            List<Feed> currentFeed = serializer.Deserialize();
           
             foreach (Feed aFeed in currentFeed)
             {
@@ -91,7 +91,7 @@ namespace Logic.Controllers
 
                 if (existingFeedAmountOfEpisodes > inFeedAmountOfEpisodes)
                 {
-                    GetEpisodes(feed.Url);
+                    EpisodeController.GetEpisodes(feed.Url);
                     MessageBox.Show("Updated " + feed.Name);
                 }
             }
@@ -129,9 +129,9 @@ namespace Logic.Controllers
             TimerService.StartTimer(feed);
         }
 
-        public void AddFeed(Feed feed, string path)
+        public void AddFeed(Feed feed)
         {
-           serializer.Serialize(path, feed);
+           serializer.Serialize(feed);
         }
         public void DeleteFeed(string feedName) {
             List<Feed> currentFeed = GetAllFeeds();
@@ -141,7 +141,7 @@ namespace Logic.Controllers
 
             currentFeed.RemoveAll(x => x.Name == feedName);
            
-            serializer.SerializeList(Environment.CurrentDirectory + "\\test.json",currentFeed);
+            serializer.SerializeList(currentFeed);
         }
     }
 

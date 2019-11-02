@@ -18,12 +18,7 @@ namespace SharedModels.Models
         public List<Episode> Episodes { get; set; }
         public Timer updateTimer { get; set; }
 
-        public Feed()
-        {
-            Name = "Feed1";
-            Frequency = "Var 1:a minut";
-            Category = "None";
-        }
+
 
         public Feed(int numberOfEpisodes, string name, string frequency, string category, List<Episode> episodes, string url)
         {
@@ -36,6 +31,7 @@ namespace SharedModels.Models
             Url = url;
             Minutes = getFrequencyMinutes(frequency);
        }
+
         private int getFrequencyMinutes(string inFrequency)
         {
             int minutes;

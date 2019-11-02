@@ -101,6 +101,20 @@ namespace Logic.Validation
 
         
         }
+
+        public static bool isAFeedSelected(ListView listView) {
+
+            bool selected = false;
+
+            if (listView.SelectedItems.Count > 0) {
+
+                selected = true;
+            
+            }
+
+            return selected;
+
+        }
         
 
         

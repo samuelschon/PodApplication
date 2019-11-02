@@ -13,21 +13,22 @@ namespace Data.Services
     public class SerializerService
     {
         public string categoryPath = Environment.CurrentDirectory + "\\categories.json";
+        public string feedPath = Environment.CurrentDirectory + "\\feeds.json";
      
-        public void Serialize(string path, Feed inObject)
+        public void Serialize(Feed inObject)
         {
             List<Feed> listOfExistingItems = new List<Feed>();
            
             //Om filen finns läser vi ut den och lägger till den fil man vill lägg till och skriver över det befintliga som var där innan.
-            if (File.Exists(path))
+            if (File.Exists(feedPath))
             {
-                listOfExistingItems = Deserialize(path);
+                listOfExistingItems = Deserialize();
                 listOfExistingItems.Add(inObject);
 
 
                 var serializer = CreateSerializer();
 
-                using (var sw = new StreamWriter(path))
+                using (var sw = new StreamWriter(feedPath))
                 {
                     using (var jw = new JsonTextWriter(sw))
                     {
@@ -41,7 +42,7 @@ namespace Data.Services
             //annars skapar vi en ny fil och lägger till detta objekt i listan som är deklarerad högst upp i metoden(listOFExistingItems)
             else
             {
-                using (var sw = new StreamWriter(path))
+                using (var sw = new StreamWriter(feedPath))
                 {
                     using (var jw = new JsonTextWriter(sw))
                     {
@@ -55,18 +56,18 @@ namespace Data.Services
         }
 
 
-        public void SerializeList(string path, List<Feed> inListFeeds)
+        public void SerializeList(List<Feed> inListFeeds)
         {
            
 
             //Om filen finns läser vi ut den och lägger till den fil man vill lägg till och skriver över det befintliga som var där innan.
-            if (File.Exists(path))
+            if (File.Exists(feedPath))
             {
                
    
                 var serializer = CreateSerializer();
 
-                using (var sw = new StreamWriter(path))
+                using (var sw = new StreamWriter(feedPath))
                 {
                     using (var jw = new JsonTextWriter(sw))
                     {
@@ -80,7 +81,7 @@ namespace Data.Services
             //annars skapar vi en ny fil och lägger till detta objekt i listan som är deklarerad högst upp i metoden(listOFExistingItems)
             else
             {
-                using (var sw = new StreamWriter(path))
+                using (var sw = new StreamWriter(feedPath))
                 {
                     using (var jw = new JsonTextWriter(sw))
                     {
@@ -124,13 +125,13 @@ namespace Data.Services
 
 
 
-        public List<Feed> Deserialize(string path)
+        public List<Feed> Deserialize()
         {
             List<Feed> feeez = new List<Feed>();
-            if (File.Exists(path))
+            if (File.Exists(feedPath))
             {
                 //Läser Json - Text
-                var json = System.IO.File.ReadAllText(path);
+                var json = System.IO.File.ReadAllText(feedPath);
 
                 //Lägger json i en lista.
                feeez = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Feed>>(json);
