@@ -279,11 +279,6 @@ namespace Gui
             }
         }
 
-        private void lstAllEpisodes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
 
         private void lstAllEpisodes_MouseClick(object sender, MouseEventArgs e)
@@ -295,39 +290,12 @@ namespace Gui
             }
         }
 
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtUpdateFrequency_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void txtNewCategoryName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstAllFeeds_SelectedIndexChanged(object sender, EventArgs e)
-        {
-      
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUpdateFrequency_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
+     
     }
 }

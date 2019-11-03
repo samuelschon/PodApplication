@@ -116,7 +116,7 @@
             this.lstAllEpisodes.TabIndex = 33;
             this.lstAllEpisodes.UseCompatibleStateImageBehavior = false;
             this.lstAllEpisodes.View = System.Windows.Forms.View.Details;
-            this.lstAllEpisodes.SelectedIndexChanged += new System.EventHandler(this.lstAllEpisodes_SelectedIndexChanged);
+            
             this.lstAllEpisodes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstAllEpisodes_MouseClick);
             // 
             // columnHeader3
@@ -196,7 +196,7 @@
             this.lstAllFeeds.TabIndex = 27;
             this.lstAllFeeds.UseCompatibleStateImageBehavior = false;
             this.lstAllFeeds.View = System.Windows.Forms.View.Details;
-            this.lstAllFeeds.SelectedIndexChanged += new System.EventHandler(this.lstAllFeeds_SelectedIndexChanged);
+         
             this.lstAllFeeds.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstAllFeeds_MouseClick);
             // 
             // txtNewCategoryName
@@ -206,7 +206,7 @@
             this.txtNewCategoryName.Name = "txtNewCategoryName";
             this.txtNewCategoryName.Size = new System.Drawing.Size(240, 20);
             this.txtNewCategoryName.TabIndex = 26;
-            this.txtNewCategoryName.TextChanged += new System.EventHandler(this.txtNewCategoryName_TextChanged);
+        
             // 
             // label3
             // 
@@ -360,7 +360,7 @@
             this.lblEpisodeSummary.Name = "lblEpisodeSummary";
             this.lblEpisodeSummary.Size = new System.Drawing.Size(217, 124);
             this.lblEpisodeSummary.TabIndex = 54;
-            this.lblEpisodeSummary.Click += new System.EventHandler(this.label5_Click);
+           
             // 
             // lblEpisodeTitle
             // 
@@ -375,7 +375,7 @@
             this.lblEpisodePublished.Name = "lblEpisodePublished";
             this.lblEpisodePublished.Size = new System.Drawing.Size(177, 23);
             this.lblEpisodePublished.TabIndex = 56;
-            this.lblEpisodePublished.Click += new System.EventHandler(this.label5_Click_1);
+            
             // 
             // txtUpdateFrequency
             // 
@@ -411,8 +411,8 @@
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "txtUpdateFrequency";
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.txtUpdateFrequency_FormClosing);
-            this.Load += new System.EventHandler(this.txtUpdateFrequency_Load);
+            
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
