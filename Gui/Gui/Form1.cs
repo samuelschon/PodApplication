@@ -265,6 +265,7 @@ namespace Gui
 
         private void btnResetView_Click_1(object sender, EventArgs e)
         {
+            LoadAllFeeds();
             UpdateFeedList();
             
         }
@@ -295,6 +296,11 @@ namespace Gui
 
         }
 
-     
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            LoadAllFeeds();
+            UpdateFeedList();
+            
+        }
     }
 }

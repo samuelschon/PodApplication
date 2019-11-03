@@ -61,15 +61,16 @@
             this.lblEpisodeSummary = new System.Windows.Forms.Label();
             this.lblEpisodeTitle = new System.Windows.Forms.Label();
             this.lblEpisodePublished = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(535, 1);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(713, 1);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(3, 781);
+            this.label4.Size = new System.Drawing.Size(4, 961);
             this.label4.TabIndex = 39;
             // 
             // cboxCategory
@@ -79,10 +80,10 @@
             this.cboxCategory.Items.AddRange(new object[] {
             "Historia",
             "Humor"});
-            this.cboxCategory.Location = new System.Drawing.Point(430, 286);
-            this.cboxCategory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboxCategory.Location = new System.Drawing.Point(573, 352);
+            this.cboxCategory.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cboxCategory.Name = "cboxCategory";
-            this.cboxCategory.Size = new System.Drawing.Size(79, 21);
+            this.cboxCategory.Size = new System.Drawing.Size(104, 24);
             this.cboxCategory.TabIndex = 36;
             // 
             // cboxFrequency
@@ -95,10 +96,10 @@
             "Var 10:e minut",
             "Var 15:e minut",
             "Var 20:e minut"});
-            this.cboxFrequency.Location = new System.Drawing.Point(306, 286);
-            this.cboxFrequency.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.cboxFrequency.Location = new System.Drawing.Point(408, 352);
+            this.cboxFrequency.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.cboxFrequency.Name = "cboxFrequency";
-            this.cboxFrequency.Size = new System.Drawing.Size(116, 21);
+            this.cboxFrequency.Size = new System.Drawing.Size(153, 24);
             this.cboxFrequency.TabIndex = 35;
             // 
             // lstAllEpisodes
@@ -109,14 +110,13 @@
             this.columnHeader7});
             this.lstAllEpisodes.FullRowSelect = true;
             this.lstAllEpisodes.HideSelection = false;
-            this.lstAllEpisodes.Location = new System.Drawing.Point(20, 405);
-            this.lstAllEpisodes.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.lstAllEpisodes.Location = new System.Drawing.Point(27, 498);
+            this.lstAllEpisodes.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.lstAllEpisodes.Name = "lstAllEpisodes";
-            this.lstAllEpisodes.Size = new System.Drawing.Size(278, 234);
+            this.lstAllEpisodes.Size = new System.Drawing.Size(369, 287);
             this.lstAllEpisodes.TabIndex = 33;
             this.lstAllEpisodes.UseCompatibleStateImageBehavior = false;
             this.lstAllEpisodes.View = System.Windows.Forms.View.Details;
-            
             this.lstAllEpisodes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstAllEpisodes_MouseClick);
             // 
             // columnHeader3
@@ -130,10 +130,10 @@
             // 
             // btnRemoveCategory
             // 
-            this.btnRemoveCategory.Location = new System.Drawing.Point(549, 388);
-            this.btnRemoveCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemoveCategory.Location = new System.Drawing.Point(732, 478);
+            this.btnRemoveCategory.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnRemoveCategory.Name = "btnRemoveCategory";
-            this.btnRemoveCategory.Size = new System.Drawing.Size(98, 34);
+            this.btnRemoveCategory.Size = new System.Drawing.Size(131, 42);
             this.btnRemoveCategory.TabIndex = 32;
             this.btnRemoveCategory.Text = "Ta bort..";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
@@ -141,10 +141,10 @@
             // 
             // btnNewCategory
             // 
-            this.btnNewCategory.Location = new System.Drawing.Point(549, 335);
-            this.btnNewCategory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewCategory.Location = new System.Drawing.Point(732, 412);
+            this.btnNewCategory.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnNewCategory.Name = "btnNewCategory";
-            this.btnNewCategory.Size = new System.Drawing.Size(98, 34);
+            this.btnNewCategory.Size = new System.Drawing.Size(131, 42);
             this.btnNewCategory.TabIndex = 30;
             this.btnNewCategory.Text = "Ny...";
             this.btnNewCategory.UseVisualStyleBackColor = true;
@@ -152,10 +152,10 @@
             // 
             // btnDeleteFeed
             // 
-            this.btnDeleteFeed.Location = new System.Drawing.Point(232, 318);
-            this.btnDeleteFeed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteFeed.Location = new System.Drawing.Point(309, 391);
+            this.btnDeleteFeed.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnDeleteFeed.Name = "btnDeleteFeed";
-            this.btnDeleteFeed.Size = new System.Drawing.Size(98, 34);
+            this.btnDeleteFeed.Size = new System.Drawing.Size(131, 42);
             this.btnDeleteFeed.TabIndex = 29;
             this.btnDeleteFeed.Text = "Ta bort...";
             this.btnDeleteFeed.UseVisualStyleBackColor = true;
@@ -189,41 +189,39 @@
             this.colCategory});
             this.lstAllFeeds.FullRowSelect = true;
             this.lstAllFeeds.HideSelection = false;
-            this.lstAllFeeds.Location = new System.Drawing.Point(20, 12);
-            this.lstAllFeeds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.lstAllFeeds.Location = new System.Drawing.Point(27, 15);
+            this.lstAllFeeds.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.lstAllFeeds.Name = "lstAllFeeds";
-            this.lstAllFeeds.Size = new System.Drawing.Size(374, 234);
+            this.lstAllFeeds.Size = new System.Drawing.Size(497, 287);
             this.lstAllFeeds.TabIndex = 27;
             this.lstAllFeeds.UseCompatibleStateImageBehavior = false;
             this.lstAllFeeds.View = System.Windows.Forms.View.Details;
-         
             this.lstAllFeeds.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstAllFeeds_MouseClick);
             // 
             // txtNewCategoryName
             // 
-            this.txtNewCategoryName.Location = new System.Drawing.Point(549, 307);
-            this.txtNewCategoryName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNewCategoryName.Location = new System.Drawing.Point(732, 378);
+            this.txtNewCategoryName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtNewCategoryName.Name = "txtNewCategoryName";
-            this.txtNewCategoryName.Size = new System.Drawing.Size(240, 20);
+            this.txtNewCategoryName.Size = new System.Drawing.Size(319, 22);
             this.txtNewCategoryName.TabIndex = 26;
-        
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 260);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(23, 320);
+            this.label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
+            this.label3.Size = new System.Drawing.Size(36, 17);
             this.label3.TabIndex = 25;
             this.label3.Text = "URL";
             // 
             // btnNewFeed
             // 
-            this.btnNewFeed.Location = new System.Drawing.Point(20, 318);
-            this.btnNewFeed.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnNewFeed.Location = new System.Drawing.Point(27, 391);
+            this.btnNewFeed.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnNewFeed.Name = "btnNewFeed";
-            this.btnNewFeed.Size = new System.Drawing.Size(98, 34);
+            this.btnNewFeed.Size = new System.Drawing.Size(131, 42);
             this.btnNewFeed.TabIndex = 24;
             this.btnNewFeed.Text = "Ny...";
             this.btnNewFeed.UseVisualStyleBackColor = true;
@@ -231,57 +229,55 @@
             // 
             // txtUrl
             // 
-            this.txtUrl.Location = new System.Drawing.Point(20, 287);
-            this.txtUrl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUrl.Location = new System.Drawing.Point(27, 353);
+            this.txtUrl.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtUrl.Name = "txtUrl";
-            this.txtUrl.Size = new System.Drawing.Size(278, 20);
+            this.txtUrl.Size = new System.Drawing.Size(369, 22);
             this.txtUrl.TabIndex = 23;
             this.txtUrl.Text = "https://api.sr.se/api/rss/program/407";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(542, 318);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(723, 391);
+            this.label2.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(262, 159);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(349, 196);
+            this.label1.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(0, 17);
             this.label1.TabIndex = 21;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(430, 261);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(573, 321);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 13);
+            this.label7.Size = new System.Drawing.Size(65, 17);
             this.label7.TabIndex = 40;
             this.label7.Text = "Kategori:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(296, 261);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(395, 321);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 13);
+            this.label8.Size = new System.Drawing.Size(151, 17);
             this.label8.TabIndex = 41;
             this.label8.Text = "Uppdateringsfrekvens:";
             // 
             // btnSaveFeedChanges
             // 
-            this.btnSaveFeedChanges.Location = new System.Drawing.Point(126, 318);
-            this.btnSaveFeedChanges.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveFeedChanges.Location = new System.Drawing.Point(168, 391);
+            this.btnSaveFeedChanges.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSaveFeedChanges.Name = "btnSaveFeedChanges";
-            this.btnSaveFeedChanges.Size = new System.Drawing.Size(98, 34);
+            this.btnSaveFeedChanges.Size = new System.Drawing.Size(131, 42);
             this.btnSaveFeedChanges.TabIndex = 44;
             this.btnSaveFeedChanges.Text = "Spara";
             this.btnSaveFeedChanges.UseVisualStyleBackColor = true;
@@ -289,18 +285,17 @@
             // 
             // lblCurrentFeed
             // 
-            this.lblCurrentFeed.Location = new System.Drawing.Point(17, 363);
-            this.lblCurrentFeed.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCurrentFeed.Location = new System.Drawing.Point(23, 447);
             this.lblCurrentFeed.Name = "lblCurrentFeed";
-            this.lblCurrentFeed.Size = new System.Drawing.Size(122, 23);
+            this.lblCurrentFeed.Size = new System.Drawing.Size(163, 28);
             this.lblCurrentFeed.TabIndex = 45;
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(655, 335);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Location = new System.Drawing.Point(873, 412);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(98, 34);
+            this.btnEdit.Size = new System.Drawing.Size(131, 42);
             this.btnEdit.TabIndex = 46;
             this.btnEdit.Text = "Ändra";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -308,10 +303,10 @@
             // 
             // btnSaveCategoryEdit
             // 
-            this.btnSaveCategoryEdit.Location = new System.Drawing.Point(549, 595);
-            this.btnSaveCategoryEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveCategoryEdit.Location = new System.Drawing.Point(732, 732);
+            this.btnSaveCategoryEdit.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSaveCategoryEdit.Name = "btnSaveCategoryEdit";
-            this.btnSaveCategoryEdit.Size = new System.Drawing.Size(98, 34);
+            this.btnSaveCategoryEdit.Size = new System.Drawing.Size(131, 42);
             this.btnSaveCategoryEdit.TabIndex = 48;
             this.btnSaveCategoryEdit.Text = "Spara";
             this.btnSaveCategoryEdit.UseVisualStyleBackColor = true;
@@ -319,18 +314,18 @@
             // 
             // txtEditCategoryNewName
             // 
-            this.txtEditCategoryNewName.Location = new System.Drawing.Point(545, 567);
-            this.txtEditCategoryNewName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEditCategoryNewName.Location = new System.Drawing.Point(727, 698);
+            this.txtEditCategoryNewName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.txtEditCategoryNewName.Name = "txtEditCategoryNewName";
-            this.txtEditCategoryNewName.Size = new System.Drawing.Size(240, 20);
+            this.txtEditCategoryNewName.Size = new System.Drawing.Size(319, 22);
             this.txtEditCategoryNewName.TabIndex = 49;
             // 
             // btnResetView
             // 
-            this.btnResetView.Location = new System.Drawing.Point(422, 13);
-            this.btnResetView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResetView.Location = new System.Drawing.Point(563, 16);
+            this.btnResetView.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnResetView.Name = "btnResetView";
-            this.btnResetView.Size = new System.Drawing.Size(98, 34);
+            this.btnResetView.Size = new System.Drawing.Size(131, 42);
             this.btnResetView.TabIndex = 51;
             this.btnResetView.Text = "Återställ vy";
             this.btnResetView.UseVisualStyleBackColor = true;
@@ -341,10 +336,10 @@
             this.lstAllCategories.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1});
             this.lstAllCategories.HideSelection = false;
-            this.lstAllCategories.Location = new System.Drawing.Point(549, 12);
-            this.lstAllCategories.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.lstAllCategories.Location = new System.Drawing.Point(732, 15);
+            this.lstAllCategories.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lstAllCategories.Name = "lstAllCategories";
-            this.lstAllCategories.Size = new System.Drawing.Size(266, 276);
+            this.lstAllCategories.Size = new System.Drawing.Size(353, 339);
             this.lstAllCategories.TabIndex = 52;
             this.lstAllCategories.UseCompatibleStateImageBehavior = false;
             this.lstAllCategories.View = System.Windows.Forms.View.Details;
@@ -356,32 +351,45 @@
             // 
             // lblEpisodeSummary
             // 
-            this.lblEpisodeSummary.Location = new System.Drawing.Point(303, 444);
+            this.lblEpisodeSummary.Location = new System.Drawing.Point(404, 546);
+            this.lblEpisodeSummary.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEpisodeSummary.Name = "lblEpisodeSummary";
-            this.lblEpisodeSummary.Size = new System.Drawing.Size(217, 124);
+            this.lblEpisodeSummary.Size = new System.Drawing.Size(289, 153);
             this.lblEpisodeSummary.TabIndex = 54;
-           
             // 
             // lblEpisodeTitle
             // 
-            this.lblEpisodeTitle.Location = new System.Drawing.Point(305, 402);
+            this.lblEpisodeTitle.Location = new System.Drawing.Point(407, 495);
+            this.lblEpisodeTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEpisodeTitle.Name = "lblEpisodeTitle";
-            this.lblEpisodeTitle.Size = new System.Drawing.Size(177, 23);
+            this.lblEpisodeTitle.Size = new System.Drawing.Size(236, 28);
             this.lblEpisodeTitle.TabIndex = 55;
             // 
             // lblEpisodePublished
             // 
-            this.lblEpisodePublished.Location = new System.Drawing.Point(302, 564);
+            this.lblEpisodePublished.Location = new System.Drawing.Point(403, 694);
+            this.lblEpisodePublished.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEpisodePublished.Name = "lblEpisodePublished";
-            this.lblEpisodePublished.Size = new System.Drawing.Size(177, 23);
+            this.lblEpisodePublished.Size = new System.Drawing.Size(236, 28);
             this.lblEpisodePublished.TabIndex = 56;
-            
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(563, 78);
+            this.button1.Margin = new System.Windows.Forms.Padding(5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(131, 42);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Uppdatera";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // txtUpdateFrequency
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 668);
+            this.ClientSize = new System.Drawing.Size(1120, 822);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.lblEpisodePublished);
             this.Controls.Add(this.lblEpisodeTitle);
             this.Controls.Add(this.lblEpisodeSummary);
@@ -408,11 +416,9 @@
             this.Controls.Add(this.txtUrl);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.Name = "txtUpdateFrequency";
             this.Text = "Form1";
-            
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,6 +459,7 @@
         private System.Windows.Forms.Label lblEpisodeSummary;
         private System.Windows.Forms.Label lblEpisodeTitle;
         private System.Windows.Forms.Label lblEpisodePublished;
+        private System.Windows.Forms.Button button1;
     }
 }
 
