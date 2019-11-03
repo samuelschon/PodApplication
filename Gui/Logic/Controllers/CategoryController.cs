@@ -49,7 +49,7 @@ namespace Logic.Controllers
                 }
             }
 
-            serializer.SerializeList(currentFeeds);
+            serializer.Serialize(currentFeeds);
             
 
             

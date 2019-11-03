@@ -114,7 +114,7 @@ namespace Logic.Controllers
 
             currentFeed.RemoveAll(x => x.Name == feedName);
            
-            serializer.SerializeList(currentFeed);
+            serializer.Serialize(currentFeed);
         }
     }
 

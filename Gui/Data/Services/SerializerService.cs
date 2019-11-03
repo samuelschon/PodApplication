@@ -52,7 +52,7 @@ namespace Data.Services
         }
 
 
-        public void SerializeList(List<Feed> inListFeeds)
+        public void Serialize(List<Feed> inListFeeds)
         {
            
 
