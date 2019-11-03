@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logic.Controllers;
+using Logic.Timers;
 using Logic.Validation;
 using SharedModels.Models;
 
@@ -25,7 +26,7 @@ namespace Gui
             LoadAllFeeds();
             UpdateFeedList();
             LoadCategories();
-            starttimers();
+           starttimers();
 
         }
 
@@ -144,10 +145,12 @@ namespace Gui
 
                 Task createFeedTask = Task.Run(() => controller.createFeed(txtUrl.Text, frequency, categoryName));
                 await createFeedTask;
+
+
                    
                 LoadAllFeeds();
                 UpdateFeedList();
-                starttimers();
+               
             }
         }
 
@@ -230,9 +233,11 @@ namespace Gui
 
                 //Metoderna nedan ska inte köras om inte createfeed fungerar
 
+           
                 LoadAllFeeds();
                 UpdateFeedList();
-                starttimers();
+                
+                
             }
         }
 

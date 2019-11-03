@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Newtonsoft.Json;
 using SharedModels.Models;
 
@@ -19,6 +20,9 @@ namespace Data.Services
             if (File.Exists(feedPath))
             {
                 listOfExistingItems = Deserialize();
+
+                listOfExistingItems = listOfExistingItems.Where(x => x.Name != inObject.Name).ToList();
+
                 listOfExistingItems.Add(inObject);
 
 

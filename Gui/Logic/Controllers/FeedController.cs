@@ -29,7 +29,8 @@ namespace Logic.Controllers
            
             if (!ValidationService.checkIfFeedExist(GetAllFeeds(), url))
             {
-                AddFeed(feed);
+                    TimerService.StartTimer(feed);
+                    AddFeed(feed);
             }
             else
             {
@@ -106,8 +107,7 @@ namespace Logic.Controllers
         }
 
         public void StartFeedTimer(Feed feed)
-        {
-            TimerService.StopTimer(feed);
+        { 
             TimerService.StartTimer(feed);
         }
 
@@ -119,7 +119,8 @@ namespace Logic.Controllers
             List<Feed> currentFeed = GetAllFeeds();
 
             Feed feedToDelete = GetSpecificFeed(feedName);
-            TimerService.StopTimer(feedToDelete);
+
+            feedToDelete.UpdateTimer.Stop();
 
             currentFeed.RemoveAll(x => x.Name == feedName);
            
