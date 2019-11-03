@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SharedModels.Models
+﻿namespace SharedModels.Models
 {
-   public class Category
+    public class Category
     {
         public string Name { get; set; }
         

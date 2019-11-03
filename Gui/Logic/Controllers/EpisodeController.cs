@@ -1,11 +1,8 @@
 ﻿using Logic.Validation;
 using SharedModels.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logic.Controllers
 {

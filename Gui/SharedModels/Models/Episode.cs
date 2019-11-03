@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SharedModels.Models
+﻿namespace SharedModels.Models
 {
     public class Episode
     {
