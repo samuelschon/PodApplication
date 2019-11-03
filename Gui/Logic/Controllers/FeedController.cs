@@ -73,6 +73,7 @@ namespace Logic.Controllers
                 }                
             }
             createFeed(url, inFrequency, inCategory);
+            
         }
 
         public void checkIfThereAreNewEpisodes(Feed feed)
@@ -81,12 +82,20 @@ namespace Logic.Controllers
             {
                 var inFeedName = feed.Name;
                 int inFeedAmountOfEpisodes = feed.Episodes.Count;
-                Feed existingFeed = GetSpecificFeed(inFeedName);
-                int existingFeedAmountOfEpisodes = existingFeed.Episodes.Count;
 
-                if (existingFeedAmountOfEpisodes > inFeedAmountOfEpisodes)
+                SyndicationFeed syndicationFeed = RssReader.ReadRss(feed.Url);
+
+
+                var numberOfEpisodesNow = EpisodeController.GetEpisodes(feed.Url).Count;
+
+
+
+                if (inFeedAmountOfEpisodes < numberOfEpisodesNow)
                 {
+
                     EpisodeController.GetEpisodes(feed.Url);
+
+                    UpdateSpecifikFeed(feed.Url, feed.Frequency, feed.Category, feed.Name);
                     MessageBox.Show("Updated " + feed.Name);
                 }
             }
