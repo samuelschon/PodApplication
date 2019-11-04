@@ -197,8 +197,7 @@ namespace Gui
 
                 oneListRow.Text = counter.ToString();
                 oneListRow.SubItems.Add(oneEpisode.Name);
-                //oneListRow.SubItems.Add(oneEpisode.Summary);
-                //oneListRow.SubItems.Add(oneEpisode.PublishedDate);
+              
 
                 lstAllEpisodes.Items.Add(oneListRow);
             }
@@ -271,7 +270,9 @@ namespace Gui
 
         private void btnResetView_Click_1(object sender, EventArgs e)
         {
+            LoadAllFeeds();
             UpdateFeedList();
+
             
         }
 

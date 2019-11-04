@@ -86,13 +86,14 @@ namespace Logic.Controllers
             {
                 var inFeedName = feed.Name;
                 int inFeedAmountOfEpisodes = feed.Episodes.Count;
+                var existingFeedAmountOfEpisodes = EpisodeController.GetEpisodes(feed.Url).Count;
                 Feed existingFeed = GetSpecificFeed(inFeedName);
-                int existingFeedAmountOfEpisodes = existingFeed.Episodes.Count;
+               
 
                 if (existingFeedAmountOfEpisodes > inFeedAmountOfEpisodes)
                 {
-                    EpisodeController.GetEpisodes(feed.Url);
-                    MessageBox.Show("Updated " + feed.Name);
+                    UpdateSpecifikFeed(feed.Url, feed.Frequency, feed.Category, feed.Name);
+                    
                 }
             }
             catch (Exception ex)

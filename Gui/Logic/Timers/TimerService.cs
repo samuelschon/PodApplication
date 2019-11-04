@@ -21,7 +21,7 @@ namespace Logic.Timers
             double minutes = feed.Minutes;
 
             updateTimer.Elapsed += (sender, e) => TimerElapsedHandler(sender, e, feed);
-            updateTimer.Interval = 1000 * 60 * (minutes/2);
+            updateTimer.Interval = 1000 * 60 * minutes;
             updateTimer.Enabled = true;
             updateTimer.AutoReset = true;
         }
