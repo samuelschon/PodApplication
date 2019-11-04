@@ -1,16 +1,15 @@
 ﻿using Data.Services;
 using SharedModels.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Logic.Controllers
 {
     public class CategoryController
     {
         private SerializerService serializer = new SerializerService();
+
+        private List<Category> currentCategories;
+        private List<Feed> currentFeeds;
 
         public void CreateCategory(string name) 
         {
@@ -20,7 +19,7 @@ namespace Logic.Controllers
 
         public void DeleteCategory(string categoryName) 
         {
-            List<Category> currentCategories = serializer.DeserializeCategory(); 
+            currentCategories = serializer.DeserializeCategory(); 
             /*##########Borde brytas ut i en egen metod############### */
 
              currentCategories.RemoveAll(x => x.Name == categoryName);
@@ -39,9 +38,9 @@ namespace Logic.Controllers
             DeleteCategory(oldName);
             CreateCategory(newName);
 
-            List<Feed> feedList = serializer.Deserialize();
+            currentFeeds = serializer.Deserialize();
 
-            foreach (Feed feed in feedList)
+            foreach (Feed feed in currentFeeds)
             {
                 if (feed.Category == oldName) {
 
@@ -50,7 +49,7 @@ namespace Logic.Controllers
                 }
             }
 
-            serializer.SerializeList(feedList);
+            serializer.Serialize(currentFeeds);
             
 
             
@@ -59,12 +58,6 @@ namespace Logic.Controllers
         public List<Category> GetCategories() 
         {
            return serializer.DeserializeCategory();
-        }
-
-        public List<Feed> GetFeeds() {
-
-            return serializer.Deserialize();
-        
         }
 
         public bool DoesCategoryExist(string categoryName) 
